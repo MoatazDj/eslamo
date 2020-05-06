@@ -19,5 +19,8 @@
   "homepage": "https://github.com/GreemTeam/eslamo#readme",
   "dependencies": {
     "jquery": "^3.5.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "^2.20.2"
   }
 }

@@ -76,13 +76,13 @@ class SignUp extends React.Component{
                 <div className = "form_signUp">
                     <div className="password">
                         <label name = "password">Password:</label><hr></hr>
-                        <input type = "text" id = "password" value = {this.state.password} onChange = {this.handleChange}></input>
+                        <input type = "Password" id = "password" value = {this.state.password} onChange = {this.handleChange}></input>
                     </div>
                 </div>
                 <div className = "form_signUp">
                     <div className="confirm_password">
                         <label name = "confirm_password">Confirm Password:</label><hr></hr>
-                        <input type = "text" id = "confirm_password" value = {this.state.confirm_password} onChange = {this.handleChange}></input>
+                        <input type = "Password" id = "confirm_password" value = {this.state.confirm_password} onChange = {this.handleChange}></input>
                     </div>
                 </div>
                 <div className = "form_signUp">
