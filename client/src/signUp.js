@@ -6,14 +6,12 @@ class SignUp extends React.Component{
         super(props);
         this.state = {
             form: 0,
-            username : "",
-            user_familyname : "",
+            user_first_name : "",
+            user_last_name : "",
             email : "",
             password : "",
             confirm_password : "",
-            date_of_birth : "",
-            month_of_birth: "",
-            year_of_birth: "",
+            phone_number: "",
             checked1: false,
             checked2: false
         }
@@ -24,17 +22,12 @@ class SignUp extends React.Component{
 
     resetState() {
         this.setState({
-            form: 0,
-            username : "",
-            user_familyname : "",
+            user_first_name : "",
+            user_last_name : "",
             email : "",
             password : "",
             confirm_password : "",
-            date_of_birth : "",
-            month_of_birth: "",
-            year_of_birth: "",
-            checked1: false,
-            checked2: false
+            phone_number: "",
         })
     }
 
@@ -51,27 +44,27 @@ class SignUp extends React.Component{
     }
     
     handleChange(event) {
-        this.setState({value: event.target.value});
-      }
+        this.setState({[event.target.id]: event.target.value});
+    }
 
       handleCheckboxChange(event) {
-         this.setState({ checked: event.target.checked })
+         this.setState({ [event.target.id]: event.target.checked })
       }
       render () {
           return(
             <div>
                 <h3>SignUp</h3>
-                <form action="/signUp" method="post">
+                <form>
                 <div className = "form_signUp">
-                    <div className="username">
-                        <label name = "username">Name:</label><hr></hr>
-                        <input type = "text" id = "username" value = {this.state.username} onChange = {this.handleChange}></input>
+                    <div className="user_first_name">
+                        <label name = "user_first_name">First Name:</label><hr></hr>
+                        <input type = "text" id = "user_first_name" value = {this.state.user_first_name} onChange = {this.handleChange}></input>
                     </div>
                 </div>
                 <div className = "form_signUp">
-                    <div className="user_familyname">
-                        <label name = "user_familyname">Family Name:</label><hr></hr>
-                        <input type = "text" id = "user_familyname" value = {this.state.user_familyname} onChange = {this.handleChange}></input>
+                    <div className="user_last_name">
+                        <label name = "user_last_name">Last Name:</label><hr></hr>
+                        <input type = "text" id = "user_last_name" value = {this.state.user_last_name} onChange = {this.handleChange}></input>
                     </div>
                 </div>
                 <div className = "form_signUp">
@@ -93,13 +86,9 @@ class SignUp extends React.Component{
                     </div>
                 </div>
                 <div className = "form_signUp">
-                    <div className = "Birth">
-                    <label name = "date_of_birth">Date Of Birth:</label><hr></hr>
-                        <input type = "text" id = "date_of_birth" value = {this.state.date_of_birth} onChange = {this.handleChange}></input>
-                        <label name = "month_of_birth">Month Of Birth:</label><hr></hr>
-                        <input type = "text" id = "month_of_birth" value = {this.state.month_of_birth} onChange = {this.handleChange}></input>
-                        <label name = "year_of_birth">Year Of Birth:</label><hr></hr>
-                        <input type = "text" id = "year_of_birth" value = {this.state.year_of_birth} onChange = {this.handleChange}></input>
+                    <div className = "phone_number">
+                    <label name = "phone_number">Phone Number:</label><hr></hr>
+                        <input type = "text" id = "phone_number" value = {this.state.phone_number} onChange = {this.handleChange}></input>
                     </div>
                 </div>
                 <div className = "form_signUp">
@@ -116,7 +105,7 @@ class SignUp extends React.Component{
                 <div className='submit_form'>
                         <button onClick={this.handleClick}>Create your account!</button>
                 </div>
-                </form>
+                </form><br></br><hr></hr>           
                 <span>Already have an account? -<button onClick={this.props.redirectSignIn}>Sign In!</button></span>
             </div>
           )
