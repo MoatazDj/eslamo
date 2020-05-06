@@ -22,6 +22,22 @@ class SignUp extends React.Component{
         this.handleCheckboxChange = this.handleCheckboxChange.bind(this)
     }
 
+    resetState() {
+        this.setState({
+            form: 0,
+            username : "",
+            user_familyname : "",
+            email : "",
+            password : "",
+            confirm_password : "",
+            date_of_birth : "",
+            month_of_birth: "",
+            year_of_birth: "",
+            checked1: false,
+            checked2: false
+        })
+    }
+
     handleClick(event){
         event.preventDefault();
         var data = {};
