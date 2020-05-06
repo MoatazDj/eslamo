@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-class signUp extends React.Component{
+class SignUp extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -14,14 +14,24 @@ class signUp extends React.Component{
             date_of_birth : "",
             month_of_birth: "",
             year_of_birth: "",
-            checked: false
+            checked1: false,
+            checked2: false
         }
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleCheckboxChange = this.handleCheckboxChange.bind(this)
     }
 
     handleClick(event){
         event.preventDefault();
+        var data = {};
+        for (var keys in this.state) {
+        data[keys] = this.state[keys]
+        }
+        $.post("/signUp", data, function(){
+        this.props.redirectSignIn();
+        this.resetState();
+        })
     }
     
     handleChange(event) {
@@ -81,17 +91,20 @@ class signUp extends React.Component{
                         <label name = "gender">
                             <span>Select your gender:</span><hr></hr>
                             <span>male</span>
-                            <Checkbox checked={this.state.checked} onChange={this.handleCheckboxChange}/>
+                            <input type="checkbox" checked={this.state.checked1} onChange={this.handleCheckboxChange}/>
                             <span>Female</span>
-                            <Checkbox checked={this.state.checked} onChange={this.handleCheckboxChange}/>
+                            <input type="checkbox" checked={this.state.checked2} onChange={this.handleCheckboxChange}/>
                         </label>
                     </div>
                 </div>
-                
+                <div className='submit_form'>
+                        <button onClick={this.handleClick}>Create your account!</button>
+                </div>
                 </form>
+                <span>Already have an account? -<button onClick={this.props.redirectSignIn}>Sign In!</button></span>
             </div>
           )
       }
 }
 
-export default signUp;
+export default SignUp;
