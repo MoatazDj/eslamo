@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/GreemTeam/eslamo/issues"
   },
-  "homepage": "https://github.com/GreemTeam/eslamo#readme"
+  "homepage": "https://github.com/GreemTeam/eslamo#readme",
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
 }
