@@ -8,7 +8,7 @@ router.get(('/'),(req,res,next)=>{
     res.send('welcome to signup page')
 })
 
-router.post('/signUp', (req,res,next)=>{
+router.post('/', (req,res,next)=>{
 const userData={
     firstname:req.body.firstname,
     lastname:req.body.lastname,

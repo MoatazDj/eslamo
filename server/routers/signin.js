@@ -8,7 +8,7 @@ router.get(('/'),(req,res,next)=>{
     res.send('welcome to signup page')
 })
 
-router.post('/signIn', (req,res,next)=>{
+router.post('/', (req,res,next)=>{
 User.findOne({
     where:{
         email:req.body.email
