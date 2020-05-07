@@ -87,27 +87,6 @@ CREATE TABLE IF NOT EXISTS passwords (
 	PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
--- ALTER TABLE users ADD CONSTRAINT users_fk0 FOREIGN KEY (emotional_state_id) REFERENCES emotional_states(emotional_state_id);
-
--- ALTER TABLE emotional_states ADD CONSTRAINT emotional_states_fk0 FOREIGN KEY (emotional_state_id) REFERENCES users(user_id);
-
--- ALTER TABLE emotional_states ADD CONSTRAINT emotional_states_fk1 FOREIGN KEY (emotional_state) REFERENCES doaa();
-
--- ALTER TABLE states_verses ADD CONSTRAINT states_verses_fk0 FOREIGN KEY (verse) REFERENCES verses(verse_id);
-
--- ALTER TABLE states_verses ADD CONSTRAINT states_verses_fk1 FOREIGN KEY (state_id) REFERENCES emotional_states(emotional_state_id);
-
--- ALTER TABLE states_hadith ADD CONSTRAINT states_hadith_fk0 FOREIGN KEY (hadith_id) REFERENCES verses(verse_id);
-
--- ALTER TABLE states_hadith ADD CONSTRAINT states_hadith_fk1 FOREIGN KEY (state_id) REFERENCES emotional_states(emotional_state_id);
-
--- ALTER TABLE users_verses ADD CONSTRAINT users_verses_fk0 FOREIGN KEY (verse_id) REFERENCES verses(verse_id);
-
--- ALTER TABLE users_verses ADD CONSTRAINT users_verses_fk1 FOREIGN KEY (user_id) REFERENCES users(user_id);
-
--- ALTER TABLE users_hadith ADD CONSTRAINT users_hadith_fk0 FOREIGN KEY (hadith_id) REFERENCES verses(verse_id);
-
--- ALTER TABLE users_hadith ADD CONSTRAINT users_hadith_fk1 FOREIGN KEY (state_id) REFERENCES emotional_states(emotional_state_id);
 
 
 /*  Execute this file from the command line by typing:

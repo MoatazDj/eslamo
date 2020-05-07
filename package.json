@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/GreemTeam/eslamo#readme",
   "dependencies": {
+<<<<<<< HEAD
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.7"
+=======
+    "jquery": "^3.5.1"
+>>>>>>> 7c5d77f315369cd41215ab577c52165f194bded1
   }
 }
