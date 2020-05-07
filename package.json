@@ -19,6 +19,7 @@
   "homepage": "https://github.com/GreemTeam/eslamo#readme",
   "dependencies": {
     "bcrypt": "^4.0.1",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "jquery": "^3.5.1"
   }
 }
