@@ -6,4 +6,5 @@ let connection = mysql.createConnection({
   user: "root",
   password: "root",
   database: "eslamoDB"
+  
 });
