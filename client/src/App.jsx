@@ -1,12 +1,12 @@
-import React from "react";
-import SignUp from "./components/signUp";
-import VersesList from "./components/verses/versesList";
-import "./App.css";
+import React from 'react';
+import SignUp from './components/signUp/signUp';
+import States from './components/statesSelect/statesSelect';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <VersesList />
+      <States />
     </div>
   );
 }
