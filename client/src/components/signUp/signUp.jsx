@@ -5,25 +5,23 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      form: 0,
-      userFirstName: '',
-      userLastName: '',
+      user_first_name: '',
+      user_last_name: '',
       email: '',
       password: '',
       confirmPassword: '',
       phoneNumber: '',
       checked1: false,
-      checked2: false,
+      checked2: false
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
   }
 
   resetState() {
     this.setState({
-      userFirstName: '',
-      userLastName: '',
+      user_first_name: '',
+      user_last_name: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -38,7 +36,7 @@ class SignUp extends React.Component {
       data[keys] = this.state[keys];
     }
     $.post('/signUp', data, function () {
-      this.props.redirectSignIn();
+      this.props.redirectSignUp();
       this.resetState();
     });
   }
@@ -47,9 +45,6 @@ class SignUp extends React.Component {
     this.setState({ [event.target.id]: event.target.value });
   }
 
-  handleCheckboxChange(event) {
-    this.setState({ [event.target.id]: event.target.checked });
-  }
   render() {
     return (
       <div>
@@ -141,14 +136,14 @@ class SignUp extends React.Component {
                 <span>Male: </span>
                 <input
                   type='checkbox'
-                  checked={this.state.checked1}
-                  onChange={this.handleCheckboxChange}
+                  // checked={this.state.checked1}
+                  // onChange={this.handleCheckboxChange}
                 />
                 <span>  Female: </span>
                 <input
                   type='checkbox'
-                  checked={this.state.checked2}
-                  onChange={this.handleCheckboxChange}
+                  // checked={this.state.checked2}
+                  // onChange={this.handleCheckboxChange}
                 />
               </label>
             </div>

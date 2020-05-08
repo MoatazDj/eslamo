@@ -4,10 +4,6 @@ let router=express.Router()
 let connection = require('../../database/index')
 
 router.get('/', function(request, response) {
-	response.sendFile(path.join(__dirname + '/login.html'));
-});
-
-router.post('/', function(request, response) {
 	var email = request.body.email;
 	var password = request.body.password;
 	if (email && password) {
@@ -15,7 +11,7 @@ router.post('/', function(request, response) {
 			if (results.length > 0) {
 				request.session.loggedin = true;
 				request.session.email = email;
-				response.redirect('/');
+				console.log('user successfully athenthicated')
 			} else {
 				response.send('Incorrect email and/or Password!');
 			}			

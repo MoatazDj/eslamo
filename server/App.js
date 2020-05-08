@@ -7,7 +7,6 @@ let cors = require('cors')
 
 
 let app=express();
-var app = express();
 app.use(session({
 	secret: 'secret',
 	resave: true,
@@ -19,6 +18,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(express.static('client/build'));
 app.use('/signUp', require('./routers/signup'))
-app.use('/signIn', require('./routers/signin'))
+// app.use('/signIn', require('./routers/signin'))
 
 module.exports=app
