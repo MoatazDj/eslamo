@@ -81,19 +81,13 @@ CREATE TABLE IF NOT EXISTS users_hadith (
 
 CREATE TABLE IF NOT EXISTS passwords (
 	id INT NOT NULL AUTO_INCREMENT,
-	user_password TEXT NOT NULL,
+	user_password INT NOT NULL,
 	user_id INT NOT NULL,
     salt TEXT NOT NULL,
 	PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
-INSERT INTO emotional_states (emotional_state) VALUES ('angry');
-INSERT INTO emotional_states (emotional_state) VALUES ('scared');
-INSERT INTO emotional_states (emotional_state) VALUES ('stuck');
-INSERT INTO emotional_states (emotional_state) VALUES ('sick');
 
-
-INSERT INTO verses (verse_text,surah_number, verse_number) VALUES ('الَّذِينَ يُنفِقُونَ فِي السَّرَّاء وَالضَّرَّاء وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللّهُ يُحِبُّ الْمُحْسِنِينَ',003, 134);
 
 /*  Execute this file from the command line by typing:
  *    mysql -u root -p < schema.sql
