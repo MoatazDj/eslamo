@@ -6,6 +6,11 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+<<<<<<< HEAD
+    "nodemon": "^2.0.3",
+=======
+    "bcrypt": "^4.0.1",
+>>>>>>> 55fd1f95613a6ab2b763b390fa5136f798d6e880
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"

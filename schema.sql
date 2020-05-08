@@ -5,7 +5,7 @@ CREATE DATABASE eslamoDB;
 USE eslamoDB;
 
 
-CREATE TABLE if NOT EXISTS emotional_states (
+CREATE TABLE IF NOT EXISTS emotional_states (
 	emotional_state_id INT NOT NULL AUTO_INCREMENT,
 	emotional_state TEXT NOT NULL,
 	PRIMARY KEY (emotional_state_id)
