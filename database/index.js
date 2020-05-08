@@ -1,10 +1,12 @@
 const mysql = require('mysql');
 
 
-let connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "eslamoDB"
-  
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'root',
+  database : 'eslamoDB'
 });
+
+
+// Option 1: Passing parameters separately

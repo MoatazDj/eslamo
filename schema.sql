@@ -88,6 +88,8 @@ CREATE TABLE IF NOT EXISTS passwords (
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
+INSERT INTO emotional_states (emotional_state) VALUES (`angry`, `sick`, `stuck`, `scared`);
+
 
 /*  Execute this file from the command line by typing:
  *    mysql -u root -p < schema.sql
