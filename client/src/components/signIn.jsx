@@ -25,7 +25,8 @@ class SignIn extends React.Component {
     for (var keys in this.state) {
       data[keys] = this.state[keys];
     }
-    $.post('http:localhost/5000/signIn', data, function () {
+    console.log(data);
+    $.get('http://localhost:5000/signIn', data, function () {
       this.props.redirectSignUp();
       this.resetState();
     });
