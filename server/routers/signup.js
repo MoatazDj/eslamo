@@ -12,8 +12,8 @@ router.get(('/'), (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     const userData = {
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
+        user_first_name: req.body.user_first_name,
+        user_last_name: req.body.user_last_name,
         password: req.body.password,
         email: req.body.email,
         gender: req.body.gender,
