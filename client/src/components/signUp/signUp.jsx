@@ -5,25 +5,23 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      form: 0,
-      userFirstName: '',
-      userLastName: '',
+      user_first_name: '',
+      user_last_name: '',
       email: '',
       password: '',
       confirmPassword: '',
       phoneNumber: '',
       checked1: false,
-      checked2: false,
+      checked2: false
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
   }
 
   resetState() {
     this.setState({
-      userFirstName: '',
-      userLastName: '',
+      user_first_name: '',
+      user_last_name: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -38,7 +36,7 @@ class SignUp extends React.Component {
       data[keys] = this.state[keys];
     }
     $.post('/signUp', data, function () {
-      this.props.redirectSignIn();
+      this.props.redirectSignUp();
       this.resetState();
     });
   }
@@ -47,9 +45,6 @@ class SignUp extends React.Component {
     this.setState({ [event.target.id]: event.target.value });
   }
 
-  handleCheckboxChange(event) {
-    this.setState({ [event.target.id]: event.target.checked });
-  }
   render() {
     return (
       <div>
@@ -58,7 +53,7 @@ class SignUp extends React.Component {
           <div className='form_signUp'>
             <div className='user_first_name'>
               <label name='user_first_name'>First Name:</label>
-              <hr></hr>
+              <br></br>
               <input
                 type='text'
                 id='user_first_name'
@@ -67,10 +62,11 @@ class SignUp extends React.Component {
               ></input>
             </div>
           </div>
+          <hr></hr>
           <div className='form_signUp'>
             <div className='user_last_name'>
               <label name='user_last_name'>Last Name:</label>
-              <hr></hr>
+              <br></br>
               <input
                 type='text'
                 id='user_last_name'
@@ -79,10 +75,11 @@ class SignUp extends React.Component {
               ></input>
             </div>
           </div>
+          <hr></hr>
           <div className='form_signUp'>
             <div className='email'>
               <label name='email'>Email:</label>
-              <hr></hr>
+              <br></br>
               <input
                 type='text'
                 id='email'
@@ -91,10 +88,11 @@ class SignUp extends React.Component {
               ></input>
             </div>
           </div>
+          <hr></hr>
           <div className='form_signUp'>
             <div className='password'>
               <label name='password'>Password:</label>
-              <hr></hr>
+              <br></br>
               <input
                 type='Password'
                 id='password'
@@ -103,10 +101,11 @@ class SignUp extends React.Component {
               ></input>
             </div>
           </div>
+          <hr></hr>
           <div className='form_signUp'>
             <div className='confirm_password'>
               <label name='confirm_password'>Confirm Password:</label>
-              <hr></hr>
+              <br></br>
               <input
                 type='Password'
                 id='confirm_password'
@@ -115,10 +114,11 @@ class SignUp extends React.Component {
               ></input>
             </div>
           </div>
+          <hr></hr>
           <div className='form_signUp'>
             <div className='phone_number'>
               <label name='phone_number'>Phone Number:</label>
-              <hr></hr>
+              <br></br>
               <input
                 type='text'
                 id='phone_number'
@@ -127,26 +127,28 @@ class SignUp extends React.Component {
               ></input>
             </div>
           </div>
+          <hr></hr>
           <div className='form_signUp'>
             <div className='gender'>
               <label name='gender'>
                 <span>Select your gender:</span>
-                <hr></hr>
-                <span>male</span>
+                <br></br>
+                <span>Male: </span>
                 <input
                   type='checkbox'
-                  checked={this.state.checked1}
-                  onChange={this.handleCheckboxChange}
+                  // checked={this.state.checked1}
+                  // onChange={this.handleCheckboxChange}
                 />
-                <span>Female</span>
+                <span>  Female: </span>
                 <input
                   type='checkbox'
-                  checked={this.state.checked2}
-                  onChange={this.handleCheckboxChange}
+                  // checked={this.state.checked2}
+                  // onChange={this.handleCheckboxChange}
                 />
               </label>
             </div>
           </div>
+          <hr></hr>
           <div className='submit_form'>
             <button onClick={this.handleClick}>Create your account!</button>
           </div>

@@ -7,3 +7,5 @@ let connection = mysql.createConnection({
   password: "root",
   database: "eslamoDB"
 });
+
+module.exports=connection
