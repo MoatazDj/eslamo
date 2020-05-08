@@ -11,11 +11,11 @@ class SignUp extends React.Component {
       password: '',
       confirmPassword: '',
       phoneNumber: '',
-      checked1: false,
-      checked2: false
+      gender: 'Male'
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleGenderChange = this.handleGenderChange.bind(this);
   }
 
   resetState() {
@@ -26,6 +26,7 @@ class SignUp extends React.Component {
       password: '',
       confirmPassword: '',
       phoneNumber: '',
+      gender: 'Male'
     });
   }
 
@@ -43,6 +44,10 @@ class SignUp extends React.Component {
 
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
+  }
+
+  handleGenderChange(event){
+    this.setState({ gender : event.target.value})
   }
 
   render() {
@@ -130,22 +135,11 @@ class SignUp extends React.Component {
           <hr></hr>
           <div className='form_signUp'>
             <div className='gender'>
-              <label name='gender'>
-                <span>Select your gender:</span>
-                <br></br>
-                <span>Male: </span>
-                <input
-                  type='checkbox'
-                  // checked={this.state.checked1}
-                  // onChange={this.handleCheckboxChange}
-                />
-                <span>  Female: </span>
-                <input
-                  type='checkbox'
-                  // checked={this.state.checked2}
-                  // onChange={this.handleCheckboxChange}
-                />
-              </label>
+              <label name = 'gender'>Select your gender: </label>
+              <select value = {this.state.gender} onChange = {this.handleGenderChange}>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
             </div>
           </div>
           <hr></hr>
