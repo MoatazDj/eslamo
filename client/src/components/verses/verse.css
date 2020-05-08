@@ -1,4 +1,54 @@
 .verse {
     background-color: blueviolet;
-    height: 80px;
+    /* height: 80px; */
+}
+
+#verseImg {
+    width: 80%;
+}
+
+#starIcon {
+    width: 30px;
+}
+
+#starFavoris {
+    margin: 50px 0;
+    position: relative;
+    display: block;
+    color: red;
+    width: 0px;
+    height: 0px;
+    border-right: 50px solid transparent;
+    border-bottom: 35px solid red;
+    border-left: 50px solid transparent;
+    transform: rotate(35deg);
+}
+
+#starFavoris:before {
+    border-bottom: 40px solid red;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -45px;
+    left: -65px;
+    display: block;
+    content: '';
+    transform: rotate(-35deg);
+}
+
+#starFavoris:after {
+    position: absolute;
+    display: block;
+    color: red;
+    top: 3px;
+    left: -105px;
+    width: 0px;
+    height: 0px;
+    border-right: 50px solid transparent;
+    border-bottom: 35px solid red;
+    border-left: 50px solid transparent;
+    transform: rotate(-70deg);
+    content: '';
 }
