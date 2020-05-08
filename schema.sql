@@ -27,19 +27,19 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS verses (
 	verse_id INT NOT NULL AUTO_INCREMENT,
-	verse_text TEXT NOT NULL ,
-	surah TEXT NOT NULL ,
-	chapter INT NOT NULL,
+	verse_text TEXT,
 	verse_number INT NOT NULL,
+	surah_name TEXT,
+	surah_number INT NOT NULL,
 	PRIMARY KEY (verse_id)
 );
 
 CREATE TABLE IF NOT EXISTS hadiths (
 	hadith_id INT NOT NULL AUTO_INCREMENT,
-	hadith_text TEXT NOT NULL ,
-	book TEXT NOT NULL,
-	source TEXT NOT NULL,
-	title TEXT NOT NULL,
+	hadith_text TEXT,
+	book TEXT,
+	source TEXT,
+	title TEXT,
 	PRIMARY KEY (hadith_id)
 );
 
@@ -87,6 +87,13 @@ CREATE TABLE IF NOT EXISTS passwords (
 	PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
+INSERT INTO emotional_states (emotional_state) VALUES ('angry');
+INSERT INTO emotional_states (emotional_state) VALUES ('scared');
+INSERT INTO emotional_states (emotional_state) VALUES ('stuck');
+INSERT INTO emotional_states (emotional_state) VALUES ('sick');
+
+
+INSERT INTO verses (verse_text,surah_number, verse_number) VALUES ('الَّذِينَ يُنفِقُونَ فِي السَّرَّاء وَالضَّرَّاء وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللّهُ يُحِبُّ الْمُحْسِنِينَ',003, 134);
 
 /*  Execute this file from the command line by typing:
  *    mysql -u root -p < schema.sql
