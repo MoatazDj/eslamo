@@ -5,7 +5,7 @@ CREATE DATABASE eslamoDB;
 USE eslamoDB;
 
 
-CREATE TABLE IF NOT EXISTS emotional_states (
+CREATE TABLE if NOT EXISTS emotional_states (
 	emotional_state_id INT NOT NULL AUTO_INCREMENT,
 	emotional_state TEXT NOT NULL,
 	PRIMARY KEY (emotional_state_id)
@@ -88,7 +88,6 @@ CREATE TABLE IF NOT EXISTS passwords (
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
-INSERT INTO emotional_states (emotional_state) VALUES (`angry`, `sick`, `stuck`, `scared`);
 
 
 /*  Execute this file from the command line by typing:
