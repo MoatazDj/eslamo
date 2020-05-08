@@ -39,14 +39,14 @@ router.get('/', function(req,res){
 	  });
   })
 
-router.get('/', function(request, response) {
-	if (request.session.loggedin) {
-		response.send('Welcome back, ' + request.session.email + '!');
-	} else {
-		response.send('Please login to view this page!');
-	}
-	response.end();
-});
+// router.get('/', function(request, response) {
+// 	if (request.session.loggedin) {
+// 		response.send('Welcome back, ' + request.session.email + '!');
+// 	} else {
+// 		response.send('Please login to view this page!');
+// 	}
+// 	response.end();
+// });
 
 
 module.exports=router
