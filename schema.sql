@@ -81,12 +81,13 @@ CREATE TABLE IF NOT EXISTS users_hadith (
 
 CREATE TABLE IF NOT EXISTS passwords (
 	id INT NOT NULL AUTO_INCREMENT,
-	user_password TEXT NOT NULL,
+	user_password INT NOT NULL,
 	user_id INT NOT NULL,
     salt TEXT NOT NULL,
 	PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
+
 
 
 /*  Execute this file from the command line by typing:
