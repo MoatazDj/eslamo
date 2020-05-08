@@ -3,16 +3,18 @@ const router = express.Router()
 const connection = require('../../database/index')
 
 router.get('/', (req, res, next) => {
-    fetch("http://api.alquran.cloud/v1/ayah/262")
-        .then(res => res.json())
-        .then(data => {
-            res.send({
-                data
-            });
-            console.log(data)
-        })
-        .catch(err => {
-            res.redirect('/error');
-        });
+    const state = req.query.state;
+
+    console.log('Verses GET request received with state :', state);
+
+    // connection.query('SELECT * FROM verses', (err, result) => {
+    //   if (err) console.log("Error Verses " + error)
+    //     else {
+    //       if (result.length > 0) {
+    //         res.send(result)
+    //       }
+    //     }
+
+    //   })
 })
 module.exports = router

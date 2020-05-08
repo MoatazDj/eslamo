@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -15,7 +16,8 @@ class States extends React.Component {
 
   getVerses(event) {
     event.preventDefault();
-    console.log(`fetching verse for ${event.target.innerHTML}`);
+    const state = event.target.innerHTML
+    $.get('http://localhost:5000/verses', {state}, function(){});
   }
   render() {
     return (
@@ -33,10 +35,7 @@ class States extends React.Component {
               return (
                 <Grid container item key={index} md={4}>
                   
-                    <Paper id='stateComponent'>
-                      <Grid item>
-                        Image Goes here
-                      </Grid>
+                    <Paper id='stateComponent' onClick={this.getVerses}>
                       <Grid item>
                         {emotionalState}
                       </Grid>
