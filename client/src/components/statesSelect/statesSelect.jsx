@@ -17,7 +17,9 @@ class States extends React.Component {
   getVerses(event) {
     event.preventDefault();
     const state = event.target.innerHTML
-    $.get('http://localhost:5000/verses', {state}, function(){});
+    $.get('http://localhost:5000/verses', {state}, function(results){
+      console.log(results);
+    });
   }
   render() {
     return (
