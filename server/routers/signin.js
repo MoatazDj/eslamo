@@ -15,7 +15,6 @@ router.get('/', function(req,res){
     const searchUserQuery = ' SELECT user_id FROM users WHERE email = ?'
 	const addPassword = `INSERT INTO passwords(user_password,salt,user_id) VALUES(?,?,?)`;
 	const selectingPassword = `SELECT user_id FROM passwords WHERE user_password = ?`
-    const userInfo = userData.email
     const salt = bcrypt.genSaltSync(10, "a");
 	connection.query(searchUserQuery,[userData.email],(error, results) => {
 	  if (error) {
@@ -34,6 +33,7 @@ router.get('/', function(req,res){
 						})
 					})
 				})
+				bcrypt.compareSync(selectingPassword, )
 		  }
 		else{
 		  res.send({
