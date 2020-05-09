@@ -4,8 +4,8 @@ import "./verse.css";
 var Verse = (props) => {
   return (
     <div className="verse">
-      <p> {props.verse}</p>
-      <p>VERSESS</p>
+      {props.sourah}
+      {props.verse_number}
     </div>
   );
 };
