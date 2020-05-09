@@ -88,7 +88,20 @@ CREATE TABLE IF NOT EXISTS passwords (
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
+INSERT INTO emotional_states (emotional_state) VALUES ('angry');
+INSERT INTO emotional_states (emotional_state) VALUES ('scared');
+INSERT INTO emotional_states (emotional_state) VALUES ('stuck');
+INSERT INTO emotional_states (emotional_state) VALUES ('sick');
 
+INSERT INTO verses (surah_number, verse_number) VALUES (003, 134);
+INSERT INTO verses (surah_number, verse_number) VALUES (009, 026);
+INSERT INTO verses (surah_number, verse_number) VALUES (021, 083);
+INSERT INTO verses (surah_number, verse_number) VALUES (017, 082);
+
+INSERT INTO states_verses (verse_id, emotional_state_id) VALUES (1, 1);
+INSERT INTO states_verses (verse_id, emotional_state_id) VALUES (2, 2);
+INSERT INTO states_verses (verse_id, emotional_state_id) VALUES (3, 3);
+INSERT INTO states_verses (verse_id, emotional_state_id) VALUES (4, 4);
 /*  Execute this file from the command line by typing:
  *    mysql -u root -p < schema.sql
  *  to create the database and the tables.*/
