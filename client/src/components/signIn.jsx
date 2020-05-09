@@ -27,7 +27,6 @@ class SignIn extends React.Component {
     }
     console.log(data);
     $.get('http://localhost:5000/signin', data, function () {
-      this.props.redirectSignUp();
       this.resetState();
     });
   }
