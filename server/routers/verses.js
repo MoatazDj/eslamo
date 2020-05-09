@@ -1,20 +1,18 @@
-const express = require('express')
-const router = express.Router()
-const connection = require('../../database/index')
+const express = require('express');
+const router = express.Router();
+const connection = require('../../database/index');
 
 router.get('/', (req, res, next) => {
     const state = req.query.state;
 
     console.log('Verses GET request received with state :', state);
 
-    // connection.query('SELECT * FROM verses', (err, result) => {
-    //   if (err) console.log("Error Verses " + error)
-    //     else {
-    //       if (result.length > 0) {
-    //         res.send(result)
-    //       }
-    //     }
-
-    //   })
-})
-module.exports = router
+    connection.query('select verse_number, surah_number from verses v inner join '+ 
+    'states_verses sv  on sv.verse_id = v.verse_id inner join '+ 
+    'emotional_states es on sv.emotional_state_id = es.emotional_state_id where emotional_state =\''+ state +'\';', (err, results) => {
+     if(err) throw err;
+     console.log(results[0].verse_number);
+     res.send(results);
+    });
+});
+module.exports = router;
