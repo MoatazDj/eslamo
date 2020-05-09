@@ -10,7 +10,7 @@ class States extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      emotionalStates: ['angry', 'sick', 'stuck', 'scared']
+      emotionalStates: ['angry', 'scared', 'stuck', 'sick']
     }
   }
 
@@ -24,23 +24,24 @@ class States extends React.Component {
         <Grid 
           container
           className='states'
-          spacing={0}
-          direction="column"
+          spacing={1}
+          
           alignItems="center"
           justify="center"
-          style={{ minHeight: '100vh' }}
+          
         >
           {
             this.state.emotionalStates.map((emotionalState, index) => {
               return (
-                <Grid container item key={index} md={4}>
-                  
+                <Grid item key={index} xs={6} sm={6} md={3} lg={3} >
                     <Paper id='stateComponent' onClick={this.getVerses}>
+                      <Grid item>
+                        <img src={require(`../../img/emoji/${emotionalState}.svg`)} alt={emotionalState}/>
+                      </Grid>
                       <Grid item>
                         {emotionalState}
                       </Grid>
                     </Paper>
-                  
                 </Grid>
               );
             })
