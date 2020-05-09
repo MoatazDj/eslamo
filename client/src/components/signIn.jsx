@@ -1,5 +1,12 @@
 import React from 'react';
 import $ from 'jquery';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
+import Typography from '@material-ui/core/Typography';
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -25,7 +32,6 @@ class SignIn extends React.Component {
     for (var keys in this.state) {
       data[keys] = this.state[keys];
     }
-    console.log(data);
     $.get('http://localhost:5000/signin', data, function () {
       this.resetState();
     });
@@ -34,47 +40,61 @@ class SignIn extends React.Component {
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
   }
+  
   render() {
     return (
-      <div>
-        <h3>SignIn</h3>
+      <Container component="main" maxWidth="xs">
+      <CssBaseline/>
+        <Typography component="h1" variant="h5">
+          Sign in
+        </Typography>
+        <div>
         <form>
           <div className='form_signUp'>
             <div className='email'>
-              <label name='email'>Email:</label>
-              <br></br>
-              <input
+              <TextField variant="outlined"
+                margin="normal"
+                required
+                id="email"
+                label="email Adress"
+                name="email Adress"
+                autoComplete="email Adress"
+                autoFocus
                 type='text'
                 id='email'
                 value={this.state.email}
                 onChange={this.handleChange}
-              ></input>
+              />
             </div>
           </div>
-          <hr></hr>
           <div className='form_signUp'>
             <div className='password'>
-              <label name='password'>Password:</label>
-              <br></br>
-              <input
+              <TextField variant="outlined"
+                margin="normal"
+                required
+                id="password"
+                label="Password"
+                name="Password"
+                autoComplete="Password"
                 type='Password'
                 id='password'
                 value={this.state.password}
                 onChange={this.handleChange}
-              ></input>
+              />
             </div>
           </div>
-          <hr></hr>
           <div className='submit_form'>
-            <button onClick={this.handleClick}>Log in</button>
+          <Button variant='outlined' color='secondary' onClick={this.handleClick}>Sign in</Button>
           </div>
         </form>
-        <hr></hr>
-        <span>
-          Don't have an account? -
-          <button onClick={this.props.redirectSignUp}>Sign In!</button>
-        </span>
-      </div>
+            <Grid item>
+              <Link href="#" variant="body2">
+                {"Don't have an account?   "}
+              </Link>
+              <Button variant='outlined' color='secondary' onClick={this.props.redirectSignUp}>Sign up!</Button>
+            </Grid>
+        </div>
+      </Container>
     );
   }
 }
