@@ -4,9 +4,7 @@ const connection = require('../../database/index')
 
 router.get('/', (req, res, next) => {
     const state = req.query.state;
-
-    console.log('Verses GET request received with state :', state);
-
+    //sconsole.log('Verses GET request received with state :', state);
     connection.query('SELECT * FROM verses', (err, result) => {
         if (err) console.log("Error Verses " + error)
         else {
@@ -14,7 +12,11 @@ router.get('/', (req, res, next) => {
                 res.send(result)
             }
         }
-
     })
+})
+router.post('/', (req, res) => {
+    console.log('favorites post req', req.body.idVerse)
+    // console.log(req.body)
+    // console.log('idddd ' + verseId)
 })
 module.exports = router
