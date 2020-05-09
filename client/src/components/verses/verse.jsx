@@ -5,7 +5,6 @@ var Verse = (props) => {
   return (
     <div className="verse">
       <p> {props.verse}</p>
-      <p>VERSESS</p>
     </div>
   );
 };

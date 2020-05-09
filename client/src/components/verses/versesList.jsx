@@ -28,6 +28,15 @@ class VersesList extends React.Component {
     //return audio;
     audio[i].play();
   }
+  getTranslation(sourah, verse) {
+    var url =
+      "http://api.mp3quran.net/api/aya?surah=" +
+      sourah +
+      "&aya=" +
+      verse +
+      "&language=en";
+    console.log(url);
+  }
 
   render() {
     var verses = this.state.versesList.map((verse, i) => (
@@ -37,7 +46,12 @@ class VersesList extends React.Component {
           src={`http://api.mp3quran.net/ayah_image/${verse.number_sourah}${verse.verse_number}.png`}
           id="verseImg"
         />
-        <button onClick={() => this.playAudio(i)}>
+        <button
+          sourah={verse.number_sourah}
+          verse={verse.verse_number}
+          onClick={() => {
+            this.playAudio(i);
+          }}>
           <span>Play Audio</span>
           <audio className="verse-audio">
             <source
