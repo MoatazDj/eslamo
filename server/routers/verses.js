@@ -7,14 +7,14 @@ router.get('/', (req, res, next) => {
 
     console.log('Verses GET request received with state :', state);
 
-    // connection.query('SELECT * FROM verses', (err, result) => {
-    //   if (err) console.log("Error Verses " + error)
-    //     else {
-    //       if (result.length > 0) {
-    //         res.send(result)
-    //       }
-    //     }
+    connection.query('SELECT * FROM verses', (err, result) => {
+        if (err) console.log("Error Verses " + error)
+        else {
+            if (result.length > 0) {
+                res.send(result)
+            }
+        }
 
-    //   })
+    })
 })
 module.exports = router

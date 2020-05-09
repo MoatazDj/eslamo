@@ -13,8 +13,8 @@ CREATE TABLE IF NOT EXISTS emotional_states (
 
 CREATE TABLE IF NOT EXISTS users (
 	user_id INT NOT NULL AUTO_INCREMENT,
-	first_name  TEXT NOT NULL ,
-	last_name TEXT NOT NULL,
+	user_first_name  TEXT NOT NULL ,
+	user_last_name TEXT NOT NULL,
 	email TEXT NOT NULL ,
 	gender TEXT,
 	phone_number INT,
@@ -27,10 +27,11 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS verses (
 	verse_id INT NOT NULL AUTO_INCREMENT,
-	verse_text TEXT NOT NULL ,
+	verse_text TEXT NOT NULL,
+	verse_number TEXT NOT NULL,
+	number_sourah TEXT NOT NULL,
 	surah TEXT NOT NULL ,
-	chapter INT NOT NULL,
-	verse_number INT NOT NULL,
+	chapter INT NOT NULL,	
 	PRIMARY KEY (verse_id)
 );
 
