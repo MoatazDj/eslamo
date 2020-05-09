@@ -37,10 +37,10 @@ CREATE TABLE IF NOT EXISTS verses (
 
 CREATE TABLE IF NOT EXISTS hadiths (
 	hadith_id INT NOT NULL AUTO_INCREMENT,
-	hadith_text TEXT NOT NULL ,
-	book TEXT NOT NULL,
-	source TEXT NOT NULL,
-	title TEXT NOT NULL,
+	hadith_text TEXT,
+	book TEXT,
+	source TEXT,
+	title TEXT,
 	PRIMARY KEY (hadith_id)
 );
 
@@ -82,13 +82,12 @@ CREATE TABLE IF NOT EXISTS users_hadith (
 
 CREATE TABLE IF NOT EXISTS passwords (
 	id INT NOT NULL AUTO_INCREMENT,
-	user_password TEXT NOT NULL,
+	user_password INT NOT NULL,
 	user_id INT NOT NULL,
     salt TEXT NOT NULL,
 	PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
-
 
 
 /*  Execute this file from the command line by typing:
