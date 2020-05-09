@@ -14,8 +14,6 @@ class VersesList extends React.Component {
       translatedVerses: [
         "In their hearts is disease, so Allah has increased their disease; and for them is a painful punishment because they [habitually] used to lie.,But they wonder that there has come to them a warner from among themselves, and the disbelievers say, 'This is an amazing thing.  ",
       ],
-      sourahNum: "002",
-      verseNum: "002",
       verseID: "100",
     };
   }
@@ -27,7 +25,7 @@ class VersesList extends React.Component {
     for (var i = 0; i < this.state.versesList.length; i++) {
       const url2 =
         "http://api.mp3quran.net/api/aya?surah=" +
-        this.state.versesList[i].number_sourah +
+        this.state.versesList[i].surah_number +
         "&aya=" +
         this.state.versesList[i].verse_number +
         "&language=en";
@@ -61,7 +59,7 @@ class VersesList extends React.Component {
       <div>
         <Verse verse={verse.verse_text} key={i}></Verse>
         <img
-          src={`http://api.mp3quran.net/ayah_image/${verse.number_sourah}${verse.verse_number}.png`}
+          src={`http://api.mp3quran.net/ayah_image/${verse.surah_number}${verse.verse_number}.png`}
           id="verseImg"
         />
         <p>{response.translatedVerses[0]}</p>
@@ -72,7 +70,7 @@ class VersesList extends React.Component {
           <span>Play Audio</span>
           <audio className="verse-audio">
             <source
-              src={`https://verse.mp3quran.net/arabic/ibrahim_alakhdar/32/${verse.number_sourah}${verse.verse_number}.mp3`}></source>
+              src={`https://verse.mp3quran.net/arabic/ibrahim_alakhdar/32/${verse.surah_number}${verse.verse_number}.mp3`}></source>
           </audio>
         </button>
         <button id={verse.verse_id} onClick={this.addToFavoris} ref="btn">

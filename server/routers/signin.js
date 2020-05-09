@@ -5,9 +5,18 @@ let bcrypt = require('bcrypt')
 let connection = require('../../database/index')
 
 router.get('/', function(req,res){
-	var email= req.body.email;
-	var password = req.body.password;
-	connection.query('SELECT * FROM users WHERE email = ?',[email], async function (error, results, fields) {
+	const userData = {
+		email: req.query.email,
+		password: req.query.password
+    }
+
+	console.log('Received Signin POST request from client with ', userData);
+
+    const searchUserQuery = ' SELECT user_id FROM users WHERE email = ?'
+	const addPassword = `INSERT INTO passwords(user_password,salt,user_id) VALUES(?,?,?)`;
+	const selectingPassword = `SELECT user_id FROM passwords WHERE user_password = ?`
+    const salt = bcrypt.genSaltSync(10, "a");
+	connection.query(searchUserQuery,[userData.email],(error, results) => {
 	  if (error) {
 		res.send({
 		  "code":400,
@@ -15,20 +24,17 @@ router.get('/', function(req,res){
 		})
 	  }else{
 		if(results.length >0){
-		  const comparision = await bcrypt.compare(password, results[0].password)
-		  if(comparision){
-			  res.send({
-				"code":200,
-				"success":"login sucessfull"
-			  })
+				bcrypt.hash(userData.password, salt, (err, hash) => {
+					if (err) console.log('errhash' + hash)
+					connection.query(addPassword, [hash, salt, resl.insertId], (error, resPass) => {
+						if (error) console.log('errPAssword ' + error)
+						res.json({
+							message: 'sending the user data'
+						})
+					})
+				})
+				bcrypt.compareSync(selectingPassword, )
 		  }
-		  else{
-			res.send({
-				 "code":204,
-				 "success":"Email and password does not match"
-			})
-		  }
-		}
 		else{
 		  res.send({
 			"code":206,
@@ -48,5 +54,11 @@ router.get('/', function(req,res){
 // 	response.end();
 // });
 
+// else{
+// 	res.send({
+// 		 "code":204,
+// 		 "success":"Email and password does not match"
+// 	})
+//   }
 
 module.exports=router
