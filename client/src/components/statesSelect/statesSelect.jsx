@@ -36,12 +36,9 @@ class States extends React.Component {
       <div className='states'>
         <Grid 
         container
-        
         spacing={1}
-
         alignItems="center"
         justify="center"
-
         >
         {
           this.state.emotionalStates.map((emotionalState, index) => {
