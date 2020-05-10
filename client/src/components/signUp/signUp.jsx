@@ -5,8 +5,8 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_first_name: '',
-      user_last_name: '',
+      first_name: '',
+      last_name: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -20,8 +20,8 @@ class SignUp extends React.Component {
 
   resetState() {
     this.setState({
-      user_first_name: '',
-      user_last_name: '',
+      first_name: '',
+      last_name: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -56,26 +56,26 @@ class SignUp extends React.Component {
         <h3>SignUp</h3>
         <form>
           <div className='form_signUp'>
-            <div className='user_first_name'>
-              <label name='user_first_name'>First Name:</label>
+            <div className='first_name'>
+              <label name='first_name'>First Name:</label>
               <br></br>
               <input
                 type='text'
-                id='user_first_name'
-                value={this.state.user_first_name}
+                id='first_name'
+                value={this.state.first_name}
                 onChange={this.handleChange}
               ></input>
             </div>
           </div>
           <hr></hr>
           <div className='form_signUp'>
-            <div className='user_last_name'>
+            <div className='last_name'>
               <label name='user_last_name'>Last Name:</label>
               <br></br>
               <input
                 type='text'
-                id='user_last_name'
-                value={this.state.user_last_name}
+                id='last_name'
+                value={this.state.last_name}
                 onChange={this.handleChange}
               ></input>
             </div>
@@ -114,7 +114,7 @@ class SignUp extends React.Component {
               <input
                 type='Password'
                 id='confirm_password'
-                value={this.state.confirm_password}
+                value={this.state.confirmPassword}
                 onChange={this.handleChange}
               ></input>
             </div>
