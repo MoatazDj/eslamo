@@ -11,25 +11,28 @@ import {
   List,
   Typography,
   Box
-} from "@material-ui/core"
+} from "@material-ui/core";
 import {
+  Favorite,
   ArrowBack,
   AssignmentInd,
   Home,
   Apps,
   ContactMail
-} from "@material-ui/icons"
+} from "@material-ui/icons";
+
 const Appnav = () => { 
 return (
  <Box component="nav">
-   <AppBar position="static" style={{ background:"tan"}}>
+   <AppBar position="static" style={{ background:"tan", overflow:"hidden"}}>
      <Toolbar>
-       <a href="#" className="logo">Logo</a>
+       <Avatar href="#" className="logo">Logo</Avatar>
        <ul>
-      <Link to="/">Home</Link>
-      <Link to="/verses"> Verses </Link>
-      <Link to="/signin"> SignIn </Link>
-      <Link to="/signup"> SignUp </Link>
+      <Home className="navbar-icons"></Home>
+      <Favorite className="navbar-icons"></Favorite>
+      <Link className="login-buttons" to="/signin"> SignIn </Link>
+      <Link className="login-buttons" to="/signup"> SignUp </Link>
+      
       </ul>
      </Toolbar>
    </AppBar>
