@@ -36,7 +36,6 @@ class VersesList extends React.Component {
   }
   playAudio(i) {
     const audio = document.getElementsByClassName("verse-audio");
-    //return audio;
     audio[i].play();
   }
   addToFavoris(e) {
