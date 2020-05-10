@@ -8,6 +8,34 @@ import './statesSelect.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import {Link, Navlink} from 'react-router-dom';
+import {
+  AppBar,
+  Toolbar,
+  Avatar,
+  Box
+} from "@material-ui/core";
+import {
+  Favorite,
+  Home,
+} from "@material-ui/icons";
+
+const Appnav = () => { 
+return (
+ <Box component="nav">
+   <AppBar position="static" style={{ backgroundColor:"#9c27b0", overflow:"visible"}}>
+     <Toolbar>
+       <Avatar href="#" className="logo" style={{ cursor: 'pointer'}}>ES</Avatar>
+       <ul>
+      <Home className="navbar-icons" style={{ cursor: 'pointer'}}></Home>
+      <Favorite className="navbar-icons" style={{ cursor: 'pointer'}}></Favorite>
+      </ul>
+     </Toolbar>
+   </AppBar>
+ </Box>
+)
+};
+
 // const useStyles = makeStyles(() => {
 //   root: {
 //     border: '1px solid',
@@ -38,10 +66,11 @@ class States extends React.Component {
   render() {
     return (
       <Container component="main" maxWidth="xm">
+        <CssBaseline/>
+        <Appnav></Appnav>
         <Typography component="h1" variant="h5">
           Select your state
         </Typography>
-      <CssBaseline/>
         <Grid 
         container
         spacing={1}

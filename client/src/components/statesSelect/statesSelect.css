@@ -7,3 +7,14 @@
     border: 1px solid red;
 }
 
+.navbar-icons{ 
+    float: left;
+    padding: 0%;
+    text-align: right;
+}
+
+.login-buttons{
+    text-decoration: none;
+    color: black;
+    margin: 0 15px;
+}
