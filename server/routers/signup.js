@@ -12,8 +12,8 @@ router.get(('/'), (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     const userData = {
-        user_first_name: req.body.user_first_name,
-        user_last_name: req.body.user_last_name,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
         password: req.body.password,
         email: req.body.email,
         gender: req.body.gender,
@@ -23,9 +23,9 @@ router.post('/', (req, res, next) => {
     console.log('Received Signup POST request from client with ', userData);
 
     const searchUserQuery = ' SELECT email FROM users WHERE email = ?'
-    const addUserQuery = `INSERT INTO users(user_first_name, user_last_name , email, gender , phone_number) VALUES(?,?,?,?,?)`;
-    const addPassword = `INSERT INTO passwords(user_password,salt,user_id) VALUES(?,?,?)`;
-    const userInfo = [userData.user_first_name, userData.user_last_name, userData.email, userData.gender, userData.phone_number]
+    const addUserQuery = `INSERT INTO users(first_name, last_name, email, gender , phone_number) VALUES(?,?,?,?,?)`;
+    const addPassword = `INSERT INTO passwords(password,salt,user_id) VALUES(?,?,?)`;
+    const userInfo = [userData.first_name, userData.last_name, userData.email, userData.gender, userData.phone_number]
     const salt = bcrypt.genSaltSync(10, "a");
 
     connection.query(searchUserQuery, [userData.email], (err, result) => {

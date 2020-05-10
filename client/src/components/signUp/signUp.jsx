@@ -151,9 +151,8 @@ class SignUp extends React.Component {
               </NativeSelect>
               </Grid>
           <br></br>
-          <Grid item xs={12}>
+          <Grid item xs={12}></Grid>
           <Button variant='outlined' color='secondary' onClick={this.handleClick}>Create your account!</Button>
-          </Grid>
           </Grid>
         </form>
         <br></br>
