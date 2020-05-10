@@ -2,8 +2,6 @@ import React from "react";
 import Verse from "./verse";
 import "./verse.css";
 import $ from "jquery";
-import Sound from "react-sound";
-import ReactAudioPlayer from "react-audio-player";
 
 class VersesList extends React.Component {
   constructor(props) {
@@ -14,7 +12,7 @@ class VersesList extends React.Component {
       translatedVerses: [
         "In their hearts is disease, so Allah has increased their disease; and for them is a painful punishment because they [habitually] used to lie.,But they wonder that there has come to them a warner from among themselves, and the disbelievers say, 'This is an amazing thing.  ",
       ],
-      verseID: "100",
+      //verseID: "100",
     };
   }
   async componentDidMount() {

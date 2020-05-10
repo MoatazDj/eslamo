@@ -16,7 +16,10 @@ var Verse = (props) => {
             src={`https://verse.mp3quran.net/arabic/ibrahim_alakhdar/32/${props.surah_number}${props.verse_number}.mp3`}></source>
         </audio>
       </button>
-      <button id={props.verse_id} onClick={props.addToFavoris}>
+      <button
+        id={props.verse_id}
+        onClick={props.addToFavoris}
+        disabled={props.disabled}>
         <img
           src="https://image.flaticon.com/icons/svg/148/148839.svg"
           className="starIcon"
