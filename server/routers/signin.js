@@ -1,11 +1,11 @@
-let express=require('express')
-let router=express.Router()
+let express = require('express')
+let router = express.Router()
 let bcrypt = require('bcrypt')
 let Promise = require('bluebird');
 
 let connection = require('../../database/index')
 
-router.get('/', function(req,res){
+router.get('/', function (req, res) {
 	const userData = {
 		email: req.query.email,
 		attemptedPassword: req.query.password
@@ -16,21 +16,24 @@ router.get('/', function(req,res){
 	const searchUserQuery = ' SELECT user_id FROM users WHERE email = ?';
 	const fetchPassSalt = 'SELECT user_password, salt FROM passwords WHERE user_id = ?';
 
-	connection.query(searchUserQuery, [ userData.email ], (searchUserErr, user) => {
+	connection.query(searchUserQuery, [userData.email], (searchUserErr, user) => {
 		if (searchUserErr) {
 			console.log('searchUserErr : ', searchUserErr)
 		} else {
-			if ( user.length ) {
-				const userId = user[0].user_id; 
+			if (user.length) {
+				const userId = user[0].user_id;
 				console.log('User located with id : ', userId, ' Fetching pass and salt ..');
-				connection.query(fetchPassSalt, [ userId ], (fPassErr, passSalt) => {
+				connection.query(fetchPassSalt, [userId], (fPassErr, passSalt) => {
 					if (fPassErr) {
 						console.log('fPassErr : ', fPassErr);
 					} else {
-						if ( passSalt.length ) {
-							const { user_password, salt } = passSalt[0];
+						if (passSalt.length) {
+							const {
+								user_password,
+								salt
+							} = passSalt[0];
 							console.log('PassSalt found, comparing attempted pass ..\n', user_password, '\n', salt)
-							bcrypt.compare( userData.attemptedPassword, user_password, (compareErr, passwordsMatch) => {
+							bcrypt.compare(userData.attemptedPassword, user_password, (compareErr, passwordsMatch) => {
 								if (compareErr) {
 									console.log('compareErr : ', compareErr);
 								} else {
@@ -69,4 +72,4 @@ router.get('/', function(req,res){
 // 	})
 //   }
 
-module.exports=router
+module.exports = router
