@@ -6,6 +6,7 @@ class Radio extends React.Component {
     super(props);
     this.state = {
       radioStations: [],
+      filtredRadios: [],
     };
   }
 
@@ -15,6 +16,12 @@ class Radio extends React.Component {
     var data = await response.json();
 
     this.setState({ radioStations: data["radios"] });
+    console.log(this.state.radioStations[0]);
+    var filteredRadio = this.state.radioStations.filter(
+      (radio) => radio["name"] == "--Quran Tafseer--"
+    );
+    this.setState({ filtredRadios: filteredRadio });
+    console.log(this.state.filtredRadios);
   }
 
   playAudio() {
