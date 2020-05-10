@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS users_hadith (
 
 CREATE TABLE IF NOT EXISTS passwords (
 	id INT NOT NULL AUTO_INCREMENT,
-	user_password INT NOT NULL,
+	user_password TEXT NOT NULL,
 	user_id INT NOT NULL,
     salt TEXT NOT NULL,
 	PRIMARY KEY (id),
