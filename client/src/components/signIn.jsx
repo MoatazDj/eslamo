@@ -91,7 +91,7 @@ class SignIn extends React.Component {
               <Link href="#" variant="body2">
                 {"Don't have an account?   "}
               </Link>
-              <Button variant='outlined' color='secondary' onClick={this.props.redirectSignUp}>Sign up!</Button>
+              <Button variant='outlined' color='secondary' >Sign up!</Button>
             </Grid>
         </div>
       </Container>
