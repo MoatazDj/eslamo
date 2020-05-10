@@ -12,15 +12,16 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
       <div className="App">
-         <Appnav/>
+          <States></States>
+         {/* <Appnav/>
          <Route exact path="/" component= {States}></Route>
          <Route path="/verses" component= {Verses}></Route>
          <Route path="/signin" component= {SignIn}></Route>
-         <Route path="/signup" component= {SignUp}></Route>
+         <Route path="/signup" component= {SignUp}></Route> */}
       </div>
-    </BrowserRouter>
+    // {/* </BrowserRouter> */}
     );
   }
 
