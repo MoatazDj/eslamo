@@ -16,6 +16,7 @@ class SignUp extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleGenderChange = this.handleGenderChange.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   resetState() {
@@ -37,8 +38,8 @@ class SignUp extends React.Component {
       data[keys] = this.state[keys];
     }
     $.post('http://localhost:5000/signup', data, function () {
-      this.props.redirectSignUp();
-      this.resetState();
+      // this.props.redirectSignUp();
+      // this.resetState();
     });
   }
 
