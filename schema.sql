@@ -107,6 +107,10 @@ VALUES
 (5, 2), (6, 2), (7, 2), (8, 2),
 (9, 3), (10, 3), (11, 3), (12, 3),
 (13, 4), (14, 4), (15, 4), (16, 4);
+
+INSERT INTO users (user_first_name,	user_last_name ,email,gender,phone_number)
+ VALUES
+ ("user1",'USER1','user@gmail.com','male',123456);
 /*  Execute this file from the command line by typing:
  *    mysql -u root -p < schema.sql
  *  to create the database and the tables.*/
