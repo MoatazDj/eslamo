@@ -1,12 +1,21 @@
 import React from 'react';
 import $ from 'jquery';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import InputLabel from '@material-ui/core/InputLabel';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      first_name: '',
-      last_name: '',
+      user_first_name: '',
+      user_last_name: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -16,12 +25,13 @@ class SignUp extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleGenderChange = this.handleGenderChange.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   resetState() {
     this.setState({
-      first_name: '',
-      last_name: '',
+      user_first_name: '',
+      user_last_name: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -37,8 +47,8 @@ class SignUp extends React.Component {
       data[keys] = this.state[keys];
     }
     $.post('http://localhost:5000/signup', data, function () {
-      this.props.redirectSignUp();
-      this.resetState();
+      // this.props.redirectSignUp();
+      // this.resetState();
     });
   }
 
@@ -52,108 +62,108 @@ class SignUp extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>SignUp</h3>
+      <Container component="main" maxWidth="xs">
+      <CssBaseline />
+        <Typography component="h1" variant="h5">
+          Sign Up
+        </Typography>
         <form>
-          <div className='form_signUp'>
-            <div className='first_name'>
-              <label name='first_name'>First Name:</label>
-              <br></br>
-              <input
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+              <TextField  variant="outlined"
+                margin="normal"
+                required
+                id="First Name"
+                label="First Name"
+                name="First Name"
+                autoComplete="First Name"
+                autoFocus
+                fullWidth
                 type='text'
-                id='first_name'
-                value={this.state.first_name}
+                id='user_first_name'
+                value={this.state.user_first_name}
                 onChange={this.handleChange}
-              ></input>
-            </div>
-          </div>
-          <hr></hr>
-          <div className='form_signUp'>
-            <div className='last_name'>
-              <label name='user_last_name'>Last Name:</label>
-              <br></br>
-              <input
+                />
+            </Grid>
+          <Grid item xs={12} sm={6}>
+              <TextField variant="outlined"
+                margin="normal"
+                required
+                id="Last Name"
+                label="Last Name"
+                name="Last Name"
+                autoComplete="Last Name"
+                autoFocus
+                fullWidth
                 type='text'
-                id='last_name'
-                value={this.state.last_name}
+                id='user_last_name'
+                value={this.state.user_last_name}
                 onChange={this.handleChange}
-              ></input>
-            </div>
-          </div>
-          <hr></hr>
-          <div className='form_signUp'>
-            <div className='email'>
-              <label name='email'>Email:</label>
-              <br></br>
-              <input
+                />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField variant="outlined"
+                margin="normal"
+                required
+                id="email"
+                label="email Adress"
+                name="email Adress"
+                autoComplete="email Adress"
+                autoFocus
                 type='text'
                 id='email'
                 value={this.state.email}
                 onChange={this.handleChange}
-              ></input>
-            </div>
-          </div>
-          <hr></hr>
-          <div className='form_signUp'>
-            <div className='password'>
-              <label name='password'>Password:</label>
-              <br></br>
-              <input
+                />
+                </Grid>
+                <Grid item xs={12}>
+              <TextField variant="outlined"
+                margin="normal"
+                required
+                id="password"
+                label="Password"
+                name="Password"
+                autoComplete="Password"
                 type='Password'
                 id='password'
                 value={this.state.password}
                 onChange={this.handleChange}
-              ></input>
-            </div>
-          </div>
-          <hr></hr>
-          <div className='form_signUp'>
-            <div className='confirm_password'>
-              <label name='confirm_password'>Confirm Password:</label>
-              <br></br>
-              <input
-                type='Password'
-                id='confirm_password'
-                value={this.state.confirmPassword}
-                onChange={this.handleChange}
-              ></input>
-            </div>
-          </div>
-          <hr></hr>
-          <div className='form_signUp'>
-            <div className='phone_number'>
-              <label name='phone_number'>Phone Number:</label>
-              <br></br>
-              <input
+                />
+                </Grid>
+                <Grid item xs={12}>
+              <TextField variant="outlined"
+                margin="normal"
+                required
+                id="Phone Number"
+                label="Phone Number"
+                name="Phone Number"
+                autoComplete="Phone Number"
                 type='text'
                 id='phone_number'
                 value={this.state.phone_number}
                 onChange={this.handleChange}
-              ></input>
-            </div>
-          </div>
-          <hr></hr>
-          <div className='form_signUp'>
-            <div className='gender'>
-              <label name = 'gender'>Select your gender: </label>
-              <select value = {this.state.gender} onChange = {this.handleGenderChange}>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-            </div>
-          </div>
-          <hr></hr>
-          <div className='submit_form'>
-            <button onClick={this.handleClick}>Create your account!</button>
-          </div>
+                />
+                </Grid>
+                <Grid item xs={12}>
+            <InputLabel htmlFor="select">Gender</InputLabel>
+              <NativeSelect id="select" value = {this.state.gender} onChange = {this.handleGenderChange}>
+                <option value="10">Male</option>
+                <option value="20">FeMale</option>
+              </NativeSelect>
+              </Grid>
+          <br></br>
+          <Grid item xs={12}></Grid>
+          <Button variant='outlined' color='secondary' onClick={this.handleClick}>Create your account!</Button>
+          </Grid>
         </form>
         <br></br>
-        <hr></hr>
-        <span>
-          Already have an account? -
-          <button onClick={this.props.redirectSignIn}>Sign In!</button>
-        </span>
-      </div>
+            <Grid item>
+              <Link href="#" variant="body2">
+                {"Already have an account?  "}
+              </Link>
+              <Button variant='outlined' color='secondary' >Sign In!</Button>
+            </Grid>
+            </Container>
     );
   }
 }

@@ -5,6 +5,9 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import './statesSelect.css';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
 
 // const useStyles = makeStyles(() => {
 //   root: {
@@ -35,20 +38,21 @@ class States extends React.Component {
   }
   render() {
     return (
-      <div className='states'>
+      <Container component="main" maxWidth="xm">
+        <CssBaseline/>
+        <Typography component="h1" variant="h5">
+          Select your state
+        </Typography>
         <Grid 
         container
-        
         spacing={1}
-
         alignItems="center"
         justify="center"
-
         >
         {
           this.state.emotionalStates.map((emotionalState, index) => {
             return (
-              <Grid item key={index} xs={6} sm={3} md={3} lg={3} >
+              <Grid item key={index} xs={6} sm={3} md={3} lg={3} id = "yo" >
                 <Paper id='stateComponent' onClick={this.getVerses}>
                   <img src={require(`../../img/emoji/${emotionalState}.svg`)} alt={emotionalState}/>
                     <Button variant='outlined'
@@ -62,7 +66,7 @@ class States extends React.Component {
           })
         }
         </Grid>
-      </div>
+        </Container>
       );
   }
 }
