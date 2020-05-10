@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS passwords (
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
+
 INSERT INTO emotional_states (emotional_state) VALUES ('angry');
 INSERT INTO emotional_states (emotional_state) VALUES ('scared');
 INSERT INTO emotional_states (emotional_state) VALUES ('stuck');

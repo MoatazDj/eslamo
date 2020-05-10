@@ -44,7 +44,7 @@ class VersesList extends React.Component {
   addToFavoris(e) {
     e.preventDefault();
     var idVerse = e.target.id;
-    var data = { idVerse: idVerse };
+    var data = { verse_id: idVerse };
 
     $.post("http://localhost:5000/verses", data, function () {
       console.log("Post success" + idVerse);
@@ -54,32 +54,19 @@ class VersesList extends React.Component {
   }
 
   render() {
-    const response = this.state;
     var verses = this.state.versesList.map((verse, i) => (
       <div>
-        <Verse verse={verse.verse_text} key={i}></Verse>
-        <img
-          src={`http://api.mp3quran.net/ayah_image/${verse.surah_number}${verse.verse_number}.png`}
-          id="verseImg"
-        />
-        <p>{response.translatedVerses[0]}</p>
-        <button
-          onClick={() => {
+        <Verse
+          verse={verse.verse_text}
+          key={i}
+          surah_number={verse.surah_number}
+          verse_number={verse.verse_number}
+          translatedVerses={this.state.translatedVerses[0]}
+          playAudio={() => {
             this.playAudio(i);
-          }}>
-          <span>Play Audio</span>
-          <audio className="verse-audio">
-            <source
-              src={`https://verse.mp3quran.net/arabic/ibrahim_alakhdar/32/${verse.surah_number}${verse.verse_number}.mp3`}></source>
-          </audio>
-        </button>
-        <button id={verse.verse_id} onClick={this.addToFavoris} ref="btn">
-          <img
-            src="https://image.flaticon.com/icons/svg/148/148839.svg"
-            className="starIcon"
-            id={verse.verse_id}
-          />
-        </button>
+          }}
+          verse_id={verse.verse_id}
+          addToFavoris={this.addToFavoris}></Verse>
       </div>
     ));
 

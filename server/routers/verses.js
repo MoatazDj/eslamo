@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../../database/index');
+const app = require('../App')
 
 router.get('/', (req, res, next) => {
     //const state = req.query.state;
-    const state = 'scared'
+    const state = 'stuck'
     //console.log('Verses GET request received with state :', state);
 
     connection.query('select * from verses v inner join ' +
@@ -17,6 +18,14 @@ router.get('/', (req, res, next) => {
         });
 });
 router.post('/', (req, res) => {
-    console.log(req.body)
+    var verse_id = req.body.verse_id;
+    var user_id = app.user_id;
+    var insertFavorites = 'INSERT INTO users_verses  (user_id, verse_id) VALUES (?,?)'
+    connection.query(insertFavorites, [user_id, verse_id], (error, result) => {
+        if (error) console.log('insertion error', error)
+        res.json({
+            message: 'favorites added successfully'
+        })
+    })
 })
 module.exports = router;
