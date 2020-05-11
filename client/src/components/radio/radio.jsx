@@ -1,5 +1,10 @@
 import React from "react";
 import ReactAudioPlayer from "react-audio-player";
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Grid from '@material-ui/core/Grid';
+
 
 class Radio extends React.Component {
   constructor(props) {
@@ -45,17 +50,16 @@ class Radio extends React.Component {
     audio.play();
   }
   render() {
-    var radios = this.state.filtredRadios.map((radio, i) => (
-      <div>
-        <div>
-          <p>{this.state.titles[i]}</p>
-        </div>
-        <div>
+    var radios = this.state.radioStations.map((radio, i) => (
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Typography component="h1" variant="h5">{radio["name"]}</Typography>
+        <Grid item>
           <ReactAudioPlayer
             src={radio["radio_url"]}
             controls></ReactAudioPlayer>
-        </div>
-      </div>
+        </Grid>
+      </Container>
     ));
     return <div>{radios}</div>;
   }

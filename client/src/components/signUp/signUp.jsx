@@ -156,7 +156,7 @@ class SignUp extends React.Component {
                 value={this.state.gender}
                 onChange={this.handleGenderChange}>
                 <option value="10">Male</option>
-                <option value="20">FeMale</option>
+                <option value="20">Female</option>
               </NativeSelect>
             </Grid>
             <br></br>
