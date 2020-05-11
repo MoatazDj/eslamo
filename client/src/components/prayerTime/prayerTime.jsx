@@ -6,6 +6,8 @@ import DatePicker from "react-datepicker";
 import format from "date-fns/format";
 import "react-datepicker/dist/react-datepicker.css";
 
+import "./prayerTime.css";
+
 class PrayerTime extends React.Component {
   constructor(props) {
     super(props);
@@ -57,7 +59,7 @@ class PrayerTime extends React.Component {
   render() {
     var prayers = this.state.todayPrayer.map((prayer) => (
       <div>
-        <div>
+        <div id="divDate">
           <div> {prayer.date.readable}&nbsp;</div>
           <div>
             {prayer.date.hijri.day}&nbsp;
@@ -65,29 +67,48 @@ class PrayerTime extends React.Component {
             {prayer.date.hijri.year}&nbsp;
           </div>
         </div>
-        <div>
-          <div>Fajr:&nbsp;&nbsp;&nbsp;{prayer.timings.Fajr}</div>
-          <div>Sunrise:&nbsp;&nbsp;&nbsp;{prayer.timings.Sunrise}</div>
-          <div>Dhuhr:&nbsp;&nbsp;&nbsp;{prayer.timings.Dhuhr}</div>
-          <div>Asr:&nbsp;&nbsp;&nbsp;{prayer.timings.Asr}</div>
-          <div>Maghrib:&nbsp;&nbsp;&nbsp;{prayer.timings.Maghrib}</div>
-          <div> Isha:&nbsp;&nbsp;&nbsp;{prayer.timings.Isha}</div>
+        <div id="prayerDivContainer">
+          <div className="prayerDiv">
+            Fajr:&nbsp;&nbsp;&nbsp;<br></br>
+            <p>{prayer.timings.Fajr}</p>
+          </div>
+          <div className="prayerDiv">
+            Sunrise:&nbsp;&nbsp;&nbsp;<br></br>
+            <p>{prayer.timings.Sunrise}</p>
+          </div>
+          <div className="prayerDiv">
+            Dhuhr:&nbsp;&nbsp;&nbsp;<br></br>
+            <p>{prayer.timings.Dhuhr}</p>
+          </div>
+          <div className="prayerDiv">
+            Asr:&nbsp;&nbsp;&nbsp;<br></br>
+            <p>{prayer.timings.Asr}</p>
+          </div>
+          <div className="prayerDiv">
+            Maghrib:&nbsp;&nbsp;&nbsp;<br></br>
+            <p>{prayer.timings.Maghrib}</p>
+          </div>
+          <div className="prayerDiv">
+            {" "}
+            Isha:&nbsp;&nbsp;&nbsp;<br></br>
+            <p>{prayer.timings.Isha}</p>
+          </div>
         </div>
-        <div>*****************</div>
       </div>
     ));
     return (
       <div>
-        <p></p>
-        <div></div>
-        {prayers}
-        <div>
+        <div id="DatePicker">
           <DatePicker
             selected={this.state.startDate}
             onChange={(date, e) => this.handleChange(date)}
             dateFormat="dd-MM-yyyy"
+            id="dtpick"
           />
         </div>
+        <p></p>
+        <div></div>
+        {prayers}
       </div>
     );
   }

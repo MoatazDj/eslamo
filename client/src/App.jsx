@@ -15,7 +15,8 @@ import "./App.css";
 function App() {
   return (
     <React.Fragment>
-      <Verses />
+      <CssBaseline />
+      <PrayerTime />
       {/* <CssBaseline />
       <Appbar /> */}
     </React.Fragment>
