@@ -15,11 +15,11 @@ import "./App.css";
 function App() {
   return (
     <React.Fragment>
-      <SignUp></SignUp>
+      <Verses></Verses>
       {/* <CssBaseline />
       <PrayerTime />
       {/* <CssBaseline />
-      <Appbar /> */} */}
+      <Appbar /> */} 
     </React.Fragment>
   );
 }
