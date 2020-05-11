@@ -55,7 +55,7 @@ class Radio extends React.Component {
         <CssBaseline />
         {this.state.filtredRadios.map((radio, i) => {
           return (
-            <Grid item id="Grid">
+            <Grid item key={i} id="Grid">
               <Typography component="h2" variant="h5">
                 {this.state.titles[i]}
               </Typography>
