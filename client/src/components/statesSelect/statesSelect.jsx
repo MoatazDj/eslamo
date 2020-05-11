@@ -73,7 +73,7 @@ class States extends React.Component {
         }
         <Route exact
         path="/verses/:emotionalState"
-        render={props => <VersesList text="Hello, " {...props} />}  
+        component={VersesList} 
         />
         </Router>
         </Grid>

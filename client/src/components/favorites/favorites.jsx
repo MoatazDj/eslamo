@@ -7,10 +7,10 @@ class Favorites extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      favorites: [],
-      translatedVerses: [
-        "In their hearts is disease, so Allah has increased their disease; and for them is a painful punishment because they [habitually] used to lie.,But they wonder that there has come to them a warner from among themselves, and the disbelievers say, 'This is an amazing thing.  ",
-      ],
+      favorites: []
+      // translatedVerses: [
+      //   "In their hearts is disease, so Allah has increased their disease; and for them is a painful punishment because they [habitually] used to lie.,But they wonder that there has come to them a warner from among themselves, and the disbelievers say, 'This is an amazing thing.  ",
+      // ],
     };
   }
   async componentDidMount() {
@@ -43,7 +43,7 @@ class Favorites extends React.Component {
           key={i}
           surah_number={verse.surah_number}
           verse_number={verse.verse_number}
-          translatedVerses={this.state.translatedVerses[0]}
+          // translatedVerses={this.state.translatedVerses[0]}
           playAudio={() => {
             this.playAudio(i);
           }}
