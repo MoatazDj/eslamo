@@ -12,6 +12,14 @@ class Radio extends React.Component {
     this.state = {
       radioStations: [],
       filtredRadios: [],
+      titles: [
+        "Main Radio",
+        "Quran Tafseer",
+        "Amazing short Recitations",
+        "Abdulrahman Alsudaes",
+        "Khaled Al-Qahtani",
+        "Abdullah Al-Johany",
+      ],
     };
   }
 
@@ -23,7 +31,15 @@ class Radio extends React.Component {
     this.setState({ radioStations: data["radios"] });
     console.log(this.state.radioStations[0]);
     var filteredRadio = this.state.radioStations.filter(
-      (radio) => radio["name"] == "--Quran Tafseer--"
+      (radio, i) =>
+        [
+          "-Main Radio-",
+          "--Quran Tafseer--",
+          "---Amazing short Recitations---",
+          "Abdulrahman Alsudaes",
+          "Khaled Al-Qahtani",
+          "Abdullah Al-Johany",
+        ].includes(radio["name"]) //radio["name"] == "--Quran Tafseer--"
     );
     this.setState({ filtredRadios: filteredRadio });
     console.log(this.state.filtredRadios);
