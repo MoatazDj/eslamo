@@ -1,52 +1,51 @@
-import React, { useState, Fragment } from 'react';
-import clsx from 'clsx';
+import React, { useState, Fragment } from "react";
+import clsx from "clsx";
 import { Router, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Home from '@material-ui/icons/Home';
-import Button from '@material-ui/core/Button';
-import { deepPurple } from '@material-ui/core/colors';
+import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import Home from "@material-ui/icons/Home";
+import Button from "@material-ui/core/Button";
+import { deepPurple } from "@material-ui/core/colors";
 
-import Radio  from "../radio/radio";
+import Radio from "../radio/radio";
 import SignUp from "../signUp/signUp";
 import States from "../statesSelect/statesSelect";
 import Favorites from "../favorites/favorites";
-import PrayerTime from '../prayerTime/prayerTime';
-import { Avatar } from '@material-ui/core';
-
-
+import PrayerTime from "../prayerTime/prayerTime";
+import { Avatar } from "@material-ui/core";
+import "./Appbar.css";
 const drawerWidth = 240;
 const history = createBrowserHistory();
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     flexGrow: 1,
-    margin: theme.spacing(5)
+    margin: theme.spacing(5),
   },
   flex: {
-    flex: 1
+    flex: 1,
   },
   drawerPaper: {
     position: "relative",
-    width: drawerWidth
+    width: drawerWidth,
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20
+    marginRight: 20,
   },
   toolbarMargin: theme.mixins.toolbar,
   aboveDrawer: {
-    zIndex: theme.zIndex.drawer + 1
+    zIndex: theme.zIndex.drawer + 1,
   },
   large: {
     width: theme.spacing(12),
@@ -58,89 +57,107 @@ const styles = theme => ({
   },
 });
 
-const MyToolbar = withStyles(styles)(
-  ({ classes, title, onMenuClick }) => (
-    <Fragment>
-      <AppBar className={classes.aboveDrawer}>
-        <Toolbar className={classes.purple}>
-          <IconButton
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="Home"
-            onClick={onMenuClick}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            color="inherit"
-            className={classes.flex}
-          >
-            {title}
-          </Typography>
-          <Avatar alt="Eslamo" src="https://lh3.googleusercontent.com/proxy/aiSRqTTlOFmkvjjElLtJ0IfAfQnMB7qGaEkRHvMEpwM4qItI0yNgSmCMmAPJpWhSh6S_WVs2Lwp698SMCASGK8q7hwvsjBsLUiGq0Kt5qj-Ro8MjZsUB" className={classes.large}  ></Avatar>
-        </Toolbar>
-      </AppBar>
-      <div className={classes.toolbarMargin} />
-    </Fragment>
-  )
-);
+const MyToolbar = withStyles(styles)(({ classes, title, onMenuClick }) => (
+  <Fragment>
+    <AppBar className={classes.aboveDrawer} id="navBar">
+      <Toolbar>
+        <IconButton
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="Home"
+          onClick={onMenuClick}>
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" color="inherit" className={classes.flex}>
+          {title}
+        </Typography>
+      </Toolbar>
+      <Avatar id="avatar">
+        <img src="https://i.ibb.co/4Ksm9Dw/11.png" />
+      </Avatar>
+    </AppBar>
+    <div className={classes.toolbarMargin} />
+  </Fragment>
+));
 
 const MyDrawer = withStyles(styles)(
   ({ classes, variant, open, onClose, onItemClick }) => (
     <Router history={history}>
-    <Drawer variant={variant} open={open} onClose={onClose}
-                classes={{
-                  paper: classes.drawerPaper
-                }}
-    >
-      <div
-        className={clsx({
-          [classes.toolbarMargin]: variant === 'persistent'
-        })}
-      />
-      <List>
-        <Avatar style= {{marginLeft: 5, marginTop:2}}></Avatar>
-        <ListItem button component={Link} to="/" onClick={onItemClick('Home')} style={{marginTop: 65}}>
-          <Home>Home </Home>
-          <Typography> Home </Typography>
-        </ListItem>
-        <ListItem button component={Link} to="/prayerTime" onClick={onItemClick('Prayer Time')}>
-          <ListItemText>Prayer Time</ListItemText>
-        </ListItem>
-        <ListItem button component={Link} to="/favorites" onClick={onItemClick('favorites')}>
-          <ListItemText>favorites</ListItemText>
-        </ListItem>
-        <ListItem button component={Link} to="/radio" onClick={onItemClick('radio')}>
-          <ListItemText>radio</ListItemText>
-        </ListItem>
-        <ListItem button component={Link} to="/signup" onClick={onItemClick('sign up')}>
-          <ListItemText>Sign out</ListItemText>
-        </ListItem>
-      </List>
-    </Drawer>
-    <main className={classes.content}>
+      <Drawer
+        variant={variant}
+        open={open}
+        onClose={onClose}
+        classes={{
+          paper: classes.drawerPaper,
+        }}>
+        <div
+          className={clsx({
+            [classes.toolbarMargin]: variant === "persistent",
+          })}
+        />
+
+        <img src="https://i.ibb.co/HX0TG9s/logo-islamo.png" />
+        <List>
+          <ListItem
+            button
+            component={Link}
+            to="/"
+            onClick={onItemClick("Home")}>
+            <Home> Home </Home>
+          </ListItem>
+          <ListItem
+            button
+            component={Link}
+            to="/prayerTime"
+            onClick={onItemClick("Prayer Time")}>
+            <ListItemText>Prayer Time</ListItemText>
+          </ListItem>
+          <ListItem
+            button
+            component={Link}
+            to="/favorites"
+            onClick={onItemClick("favorites")}>
+            <ListItemText>favorites</ListItemText>
+          </ListItem>
+          <ListItem
+            button
+            component={Link}
+            to="/radio"
+            onClick={onItemClick("radio")}>
+            <ListItemText>Radio</ListItemText>
+          </ListItem>
+          <ListItem
+            button
+            component={Link}
+            to="/signup"
+            onClick={onItemClick("Sign Up")}>
+            <ListItemText>Sign Out</ListItemText>
+          </ListItem>
+        </List>
+      </Drawer>
+      <main className={classes.content}>
         <Route exact path="/" component={States} />
-        <Route path="/signUp" component={SignUp} />
+        <Route path="/signup" component={SignUp} />
         <Route path="/prayerTime" component={PrayerTime} />
         <Route path="/favorites" component={Favorites} />
         <Route path="/radio" component={Radio} />
-    </main>
+        <Route path="/prayerTime" component={PrayerTime} />
+      </main>
     </Router>
   )
 );
 
 function AppBarInteraction({ classes, variant }) {
   const [drawer, setDrawer] = useState(false);
-  const [title, setTitle] = useState('Home');
+  const [title, setTitle] = useState("Home");
 
   const toggleDrawer = () => {
     setDrawer(!drawer);
   };
 
-  const onItemClick = title => () => {
+  const onItemClick = (title) => () => {
     setTitle(title);
-    setDrawer(variant === 'temporary' ? false : drawer);
+    setDrawer(variant === "temporary" ? false : drawer);
     setDrawer(!drawer);
   };
 
