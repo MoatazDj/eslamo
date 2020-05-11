@@ -10,7 +10,9 @@ class VersesList extends React.Component {
       versesList: [],
       selectedVerse: 0,
       translatedVerses: [
-        "In their hearts is disease, so Allah has increased their disease; and for them is a painful punishment because they [habitually] used to lie.,But they wonder that there has come to them a warner from among themselves, and the disbelievers say, 'This is an amazing thing.  ",
+        "And when they are told,‘Believe like the people who have believed, ’they say, " +
+          " ‘Shall we believe like the fools who have believed ?’" +
+          " Look! They are themselves the fools, but they do not know.",
       ],
       //verseID: "100",
     };

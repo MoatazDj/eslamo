@@ -4,28 +4,44 @@ import "./verse.css";
 var Verse = (props) => {
   return (
     <div className="verse">
-      <img
-        src={`http://api.mp3quran.net/ayah_image/${props.surah_number}${props.verse_number}.png`}
-        id="verseImg"
-      />
-      <p>{props.translatedVerses}</p>
-      <button onClick={props.playAudio}>
-        <span>Play Audio</span>
-        <audio className="verse-audio">
-          <source
-            src={`https://verse.mp3quran.net/arabic/ibrahim_alakhdar/32/${props.surah_number}${props.verse_number}.mp3`}></source>
-        </audio>
-      </button>
-      <button
-        id={props.verse_id}
-        onClick={props.addToFavoris}
-        disabled={props.disabled}>
-        <img
-          src="https://image.flaticon.com/icons/svg/148/148839.svg"
-          className="starIcon"
-          id={props.verse_id}
-        />
-      </button>
+      <div className="decoVerseLeft">
+        {/* <img src="https://i.ibb.co/JFcmgmr/left.jpg" /> */}
+      </div>
+      <div className="verseContent">
+        <table>
+          <td>
+            <img
+              src={`http://api.mp3quran.net/ayah_image/${props.surah_number}${props.verse_number}.png`}
+              id="verseImg"
+            />
+            <p>{props.translatedVerses}</p>
+          </td>
+          <td>
+            <button onClick={props.playAudio} className="addToFavoritesButton">
+              <img
+                src="https://i.ibb.co/GCrv0hp/play-ico.png"
+                className="starIcon"
+                id={props.verse_id}
+              />
+              <audio className="verse-audio">
+                <source
+                  src={`https://verse.mp3quran.net/arabic/ibrahim_alakhdar/32/${props.surah_number}${props.verse_number}.mp3`}></source>
+              </audio>
+            </button>
+            <button
+              className="addToFavoritesButton"
+              id={props.verse_id}
+              onClick={props.addToFavoris}
+              disabled={props.disabled}>
+              <img
+                src="https://i.ibb.co/74S909Z/fav-icon.png"
+                className="starIcon"
+                id={props.verse_id}
+              />
+            </button>
+          </td>
+        </table>
+      </div>
     </div>
   );
 };
