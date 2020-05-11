@@ -19,10 +19,10 @@ var Verse = (props) => {
               src={`http://api.mp3quran.net/ayah_image/${props.surah_number}${props.verse_number}.png`}
               id="verseImg"
             />
-            <p>{props.translatedVerses}</p>
+            <p style = {{marginTop: 30}}>{props.translatedVerses}</p>
           </td>
           <td>
-            <button onClick={props.playAudio} className="addToFavoritesButton">
+            <button onClick={props.onClick} className="addToFavoritesButton">
               <img
                 src="https://i.ibb.co/GCrv0hp/play-ico.png"
                 className="starIcon"
