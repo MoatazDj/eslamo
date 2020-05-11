@@ -105,7 +105,6 @@ class PrayerTime extends React.Component {
             <p>{prayer.timings.Maghrib}</p>
           </div>
           <div className="prayerDiv">
-            {" "}
             <h4>Isha:</h4>
             <p>{prayer.timings.Isha}</p>
           </div>

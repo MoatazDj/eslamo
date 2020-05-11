@@ -1,12 +1,12 @@
 #prayerDivContainer {
     background-color: beige;
     width: 100%;
-    padding-top: 3%;
+    padding-top: 2%;
     padding-bottom: 50px;
 }
 
 #mainDateDiv {
-    padding-top: 13%;
+    padding-top: 7%;
 }
 
 #divDate {
@@ -64,9 +64,9 @@ p {
 
 .prayerDiv {
     display: inline-block;
-    width: 11.5%;
+    width: 13%;
     height: 4%;
-    margin: 1%;
+    margin: 0.5%;
     padding: 15px;
     font-size: 25px;
     background-image: url("https://i.ibb.co/f4xtgc1/prayer2.jpg");
