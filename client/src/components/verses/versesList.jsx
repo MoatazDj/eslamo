@@ -2,6 +2,8 @@ import React from "react";
 import Verse from "./verse";
 import "./verse.css";
 import $ from "jquery";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
 
 class VersesList extends React.Component {
   constructor(props) {
@@ -10,7 +12,9 @@ class VersesList extends React.Component {
       versesList: [],
       selectedVerse: 0,
       translatedVerses: [
-        "In their hearts is disease, so Allah has increased their disease; and for them is a painful punishment because they [habitually] used to lie.,But they wonder that there has come to them a warner from among themselves, and the disbelievers say, 'This is an amazing thing.  ",
+        "And when they are told,‘Believe like the people who have believed, ’they say, " +
+          " ‘Shall we believe like the fools who have believed ?’" +
+          " Look! They are themselves the fools, but they do not know.",
       ],
       //verseID: "100",
     };
@@ -52,7 +56,8 @@ class VersesList extends React.Component {
 
   render() {
     var verses = this.state.versesList.map((verse, i) => (
-      <div>
+      <Container>
+       <CssBaseline />
         <Verse
           verse={verse.verse_text}
           key={i}
@@ -64,7 +69,7 @@ class VersesList extends React.Component {
           }}
           verse_id={verse.verse_id}
           addToFavoris={this.addToFavoris}></Verse>
-      </div>
+      </Container>
     ));
 
     return <div>{verses}</div>;

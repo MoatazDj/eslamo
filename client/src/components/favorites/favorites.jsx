@@ -1,5 +1,6 @@
 import React from "react";
 import Verse from "../verses/verse";
+import $ from "jquery";
 import "./favorites.css";
 
 class Favorites extends React.Component {
@@ -25,9 +26,17 @@ class Favorites extends React.Component {
     //return audio;
     audio[i].play();
   }
-  addToFavoris(e) {}
+  removeFromFavoris(e) {
+    e.preventDefault();
+    var idFavoriteVerse = e.target.id;
+    var data = { sate_verse_id: idFavoriteVerse };
+    $.post("http://localhost:5000/favorites", data, function () {
+      console.log("Remove Post success" + idFavoriteVerse);
+    });
+    console.log("versesId " + idFavoriteVerse);
+  }
   render() {
-    var favories = this.state.favorites.map((verse, i) => (
+    var favorites = this.state.favorites.map((verse, i) => (
       <div>
         <Verse
           verse={verse.verse_text}
@@ -38,13 +47,12 @@ class Favorites extends React.Component {
           playAudio={() => {
             this.playAudio(i);
           }}
-          verse_id={verse.verse_id}
-          addToFavoris={this.addToFavoris}
-          disabled={true}></Verse>
+          verse_id={verse.state_verse_id}
+          addToFavoris={this.removeFromFavoris}></Verse>
       </div>
     ));
 
-    return <div>{favories}</div>;
+    return <div>{favorites}</div>;
   }
 }
 export default Favorites;

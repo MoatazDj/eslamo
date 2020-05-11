@@ -1,26 +1,26 @@
-import React from 'react';
-import $ from 'jquery';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import InputLabel from '@material-ui/core/InputLabel';
-import NativeSelect from '@material-ui/core/NativeSelect';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import React from "react";
+import $ from "jquery";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
+import Link from "@material-ui/core/Link";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import InputLabel from "@material-ui/core/InputLabel";
+import NativeSelect from "@material-ui/core/NativeSelect";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_first_name: '',
-      user_last_name: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-      phoneNumber: '',
-      gender: 'Male'
+      first_name: "",
+      last_name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      phoneNumber: "",
+      gender: "Male",
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -30,13 +30,13 @@ class SignUp extends React.Component {
 
   resetState() {
     this.setState({
-      user_first_name: '',
-      user_last_name: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-      phoneNumber: '',
-      gender: 'Male'
+      first_name: "",
+      last_name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      phoneNumber: "",
+      gender: "Male",
     });
   }
 
@@ -46,7 +46,7 @@ class SignUp extends React.Component {
     for (var keys in this.state) {
       data[keys] = this.state[keys];
     }
-    $.post('http://localhost:5000/signup', data, function () {
+    $.post("http://localhost:5000/signup", data, function () {
       // this.props.redirectSignUp();
       // this.resetState();
     });
@@ -56,21 +56,28 @@ class SignUp extends React.Component {
     this.setState({ [event.target.id]: event.target.value });
   }
 
-  handleGenderChange(event){
-    this.setState({ gender : event.target.value})
+  handleGenderChange(event) {
+    this.setState({ gender: event.target.value });
   }
 
   render() {
     return (
+<<<<<<< HEAD
       <Container component="main" maxWidth="s">
       <CssBaseline />
         <Typography component="h1" variant="h5" style={{marginTop: 30}}>
+=======
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Typography component="h1" variant="h5">
+>>>>>>> 0bd1e158ffed3b71d11e818edee0b85f604acaf4
           Sign Up
         </Typography>
         <form>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
-              <TextField  variant="outlined"
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
                 margin="normal"
                 required
                 id="First Name"
@@ -79,14 +86,15 @@ class SignUp extends React.Component {
                 autoComplete="First Name"
                 autoFocus
                 fullWidth
-                type='text'
-                id='user_first_name'
-                value={this.state.user_first_name}
+                type="text"
+                id="first_name"
+                value={this.state.first_name}
                 onChange={this.handleChange}
-                />
+              />
             </Grid>
-          <Grid item xs={12} sm={6}>
-              <TextField variant="outlined"
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
                 margin="normal"
                 required
                 id="Last Name"
@@ -95,14 +103,15 @@ class SignUp extends React.Component {
                 autoComplete="Last Name"
                 autoFocus
                 fullWidth
-                type='text'
-                id='user_last_name'
-                value={this.state.user_last_name}
+                type="text"
+                id="last_name"
+                value={this.state.last_name}
                 onChange={this.handleChange}
-                />
+              />
             </Grid>
             <Grid item xs={12}>
-              <TextField variant="outlined"
+              <TextField
+                variant="outlined"
                 margin="normal"
                 required
                 id="email"
@@ -110,60 +119,72 @@ class SignUp extends React.Component {
                 name="email Adress"
                 autoComplete="email Adress"
                 autoFocus
-                type='text'
-                id='email'
+                type="text"
+                id="email"
                 value={this.state.email}
                 onChange={this.handleChange}
-                />
-                </Grid>
-                <Grid item xs={12}>
-              <TextField variant="outlined"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
                 margin="normal"
                 required
                 id="password"
                 label="Password"
                 name="Password"
                 autoComplete="Password"
-                type='Password'
-                id='password'
+                type="Password"
+                id="password"
                 value={this.state.password}
                 onChange={this.handleChange}
-                />
-                </Grid>
-                <Grid item xs={12}>
-              <TextField variant="outlined"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
                 margin="normal"
                 required
                 id="Phone Number"
                 label="Phone Number"
                 name="Phone Number"
                 autoComplete="Phone Number"
-                type='text'
-                id='phone_number'
+                type="text"
+                id="phone_number"
                 value={this.state.phone_number}
                 onChange={this.handleChange}
-                />
-                </Grid>
-                <Grid item xs={12}>
-            <InputLabel htmlFor="select">Gender</InputLabel>
-              <NativeSelect id="select" value = {this.state.gender} onChange = {this.handleGenderChange}>
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <InputLabel htmlFor="select">Gender</InputLabel>
+              <NativeSelect
+                id="select"
+                value={this.state.gender}
+                onChange={this.handleGenderChange}>
                 <option value="10">Male</option>
-                <option value="20">FeMale</option>
+                <option value="20">Female</option>
               </NativeSelect>
-              </Grid>
-          <br></br>
-          <Grid item xs={12}></Grid>
-          <Button variant='outlined' color='secondary' onClick={this.handleClick}>Create your account!</Button>
+            </Grid>
+            <br></br>
+            <Grid item xs={12}></Grid>
+            <Button
+              variant="outlined"
+              color="secondary"
+              onClick={this.handleClick}>
+              Create your account!
+            </Button>
           </Grid>
         </form>
         <br></br>
-            <Grid item>
-              <Link href="#" variant="body2">
-                {"Already have an account?  "}
-              </Link>
-              <Button variant='outlined' color='secondary' >Sign In!</Button>
-            </Grid>
-            </Container>
+        <Grid item>
+          <Link href="#" variant="body2">
+            {"Already have an account?  "}
+          </Link>
+          <Button variant="outlined" color="secondary">
+            Sign In!
+          </Button>
+        </Grid>
+      </Container>
     );
   }
 }

@@ -29,7 +29,7 @@ router.post('/', (req, res, next) => {
   const saltRounds = 10;
   connection.query(searchUserQuery, [userData.email], (searchErr, result) => {
     if (searchErr) {
-      console.log("searchErr " + err)
+      console.log("searchErr " + searchErr)
     } else {
       if (result.length > 0) {
         res.json({
@@ -39,7 +39,7 @@ router.post('/', (req, res, next) => {
         console.log('Generating salt ..');
         bcrypt.genSalt(saltRounds, (genSaltErr, salt) => {
           if (genSaltErr) {
-            console.log('genSaltErr : ', genSaltErr); 
+            console.log('genSaltErr : ', genSaltErr);
           } else {
             console.log('hashing password');
             bcrypt.hash(userData.password, salt, (hashErr, hash) => {
@@ -52,12 +52,14 @@ router.post('/', (req, res, next) => {
                     console.log('addUserErr : ', addUserErr);
                   } else {
                     console.log('Adding password info to database');
-                    connection.query(addPassword, [ hash, salt, addUserRes.insertId ], (addPassErr, addPassRes) => {
+                    connection.query(addPassword, [hash, salt, addUserRes.insertId], (addPassErr, addPassRes) => {
                       if (addPassErr) {
-                        console.log('addPassErr : ', addUser);
+                        console.log('addPassErr : ', addPassErr);
                       } else {
                         console.log('new user created successfully');
-                        res.json({ message: 'user created successfully' }).end();
+                        res.json({
+                          message: 'user created successfully'
+                        }).end();
                       }
                     });
                   }

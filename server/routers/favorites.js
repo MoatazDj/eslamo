@@ -12,4 +12,10 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    var deletefromFavorites = 'DELETE FROM users_verses WHERE state_verse_id = ? '
+    connection.query(deletefromFavorites, [req.body.sate_verse_id], (error, result) => {
+        res.send(result)
+    })
+})
 module.exports = router
