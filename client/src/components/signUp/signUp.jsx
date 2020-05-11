@@ -62,15 +62,9 @@ class SignUp extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <Container component="main" maxWidth="s">
-      <CssBaseline />
-        <Typography component="h1" variant="h5" style={{marginTop: 30}}>
-=======
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Typography component="h1" variant="h5">
->>>>>>> 0bd1e158ffed3b71d11e818edee0b85f604acaf4
           Sign Up
         </Typography>
         <form>
