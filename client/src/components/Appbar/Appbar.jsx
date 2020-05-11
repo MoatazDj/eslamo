@@ -114,14 +114,14 @@ const MyDrawer = withStyles(styles)(
         <ListItem button component={Link} to="/radio" onClick={onItemClick('radio')}>
           <ListItemText>radio</ListItemText>
         </ListItem>
-        <ListItem button component={Link} to="/calendar" onClick={onItemClick('calendar')}>
-          <ListItemText>Calendar</ListItemText>
+        <ListItem button component={Link} to="/signup" onClick={onItemClick('sign out')}>
+          <ListItemText>Sign out</ListItemText>
         </ListItem>
       </List>
     </Drawer>
     <main className={classes.content}>
         <Route exact path="/" component={States} />
-        <Route path="/calendar" component={Calendar} />
+        <Route path="/signUp" component={SignUp} />
         <Route path="/prayerTime" component={PrayerTime} />
         <Route path="/favorites" component={Favorites} />
         <Route path="/radio" component={Radio} />
