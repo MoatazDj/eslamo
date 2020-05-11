@@ -64,7 +64,7 @@ class SignUp extends React.Component {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style = {{marginTop : 60, marginLeft : 150}}>
           Sign Up
         </Typography>
         <form>
@@ -79,7 +79,6 @@ class SignUp extends React.Component {
                 name="First Name"
                 autoComplete="First Name"
                 autoFocus
-                fullWidth
                 type="text"
                 id="first_name"
                 value={this.state.first_name}
@@ -96,7 +95,6 @@ class SignUp extends React.Component {
                 name="Last Name"
                 autoComplete="Last Name"
                 autoFocus
-                fullWidth
                 type="text"
                 id="last_name"
                 value={this.state.last_name}
@@ -113,6 +111,7 @@ class SignUp extends React.Component {
                 name="email Adress"
                 autoComplete="email Adress"
                 autoFocus
+                fullWidth
                 type="text"
                 id="email"
                 value={this.state.email}
@@ -128,6 +127,7 @@ class SignUp extends React.Component {
                 label="Password"
                 name="Password"
                 autoComplete="Password"
+                fullWidth
                 type="Password"
                 id="password"
                 value={this.state.password}
@@ -143,6 +143,7 @@ class SignUp extends React.Component {
                 label="Phone Number"
                 name="Phone Number"
                 autoComplete="Phone Number"
+                fullWidth
                 type="text"
                 id="phone_number"
                 value={this.state.phone_number}
@@ -150,8 +151,9 @@ class SignUp extends React.Component {
               />
             </Grid>
             <Grid item xs={12}>
-              <InputLabel htmlFor="select">Gender</InputLabel>
+              <InputLabel  style = {{marginLeft: 170}} htmlFor="select">Gender</InputLabel>
               <NativeSelect
+                style = {{marginLeft: 170}}
                 id="select"
                 value={this.state.gender}
                 onChange={this.handleGenderChange}>
@@ -162,6 +164,7 @@ class SignUp extends React.Component {
             <br></br>
             <Grid item xs={12}></Grid>
             <Button
+             style = {{marginLeft: 120}}
               variant="outlined"
               color="secondary"
               onClick={this.handleClick}>
@@ -170,7 +173,7 @@ class SignUp extends React.Component {
           </Grid>
         </form>
         <br></br>
-        <Grid item>
+        <Grid item  style = {{marginLeft: 100}}>
           <Link href="#" variant="body2">
             {"Already have an account?  "}
           </Link>
