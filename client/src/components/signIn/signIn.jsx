@@ -86,10 +86,10 @@ class SignIn extends React.Component {
             </div>
           </div>
           <div className='submit_form'>
-          <Button variant='outlined' color='secondary' style = {{marginLeft: 160}} onClick={this.handleClick}>Sign in</Button>
+          <Button variant='outlined' color='secondary' style = {{marginTop : 10, marginLeft: 160}} onClick={this.handleClick}>Sign in</Button>
           </div>
         </form>
-            <Grid item style = {{marginTop : 20, marginLeft: 90}}>
+            <Grid item style = {{marginTop : 10, marginLeft: 90}}>
               <Link href="#" variant="body2">
                 {"Don't have an account?   "}
               </Link>

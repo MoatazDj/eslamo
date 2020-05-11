@@ -64,7 +64,7 @@ class SignUp extends React.Component {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Typography component="h1" variant="h5" style = {{marginTop : 60, marginLeft : 150}}>
+        <Typography component="h1" variant="h5" style = {{marginTop : 40, marginLeft : 150}}>
           Sign Up
         </Typography>
         <form>
@@ -164,7 +164,7 @@ class SignUp extends React.Component {
             <br></br>
             <Grid item xs={12}></Grid>
             <Button
-             style = {{marginLeft: 120}}
+             style = {{marginLeft: 110}}
               variant="outlined"
               color="secondary"
               onClick={this.handleClick}>
@@ -173,7 +173,7 @@ class SignUp extends React.Component {
           </Grid>
         </form>
         <br></br>
-        <Grid item  style = {{marginLeft: 100}}>
+        <Grid item  style = {{marginTop : 10, marginLeft: 90}}>
           <Link href="#" variant="body2">
             {"Already have an account?  "}
           </Link>

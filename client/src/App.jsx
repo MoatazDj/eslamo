@@ -15,7 +15,7 @@ import "./App.css";
 function App() {
   return (
     <React.Fragment>
-      <SignIn></SignIn>
+      <SignUp></SignUp>
       {/* <CssBaseline />
       <PrayerTime />
       {/* <CssBaseline />
