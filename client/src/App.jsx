@@ -15,8 +15,9 @@ import "./App.css";
 function App() {
   return (
     <React.Fragment>
-      <CssBaseline />
-      <Appbar />
+      <Verses />
+      {/* <CssBaseline />
+      <Appbar /> */}
     </React.Fragment>
   );
 }

@@ -11,8 +11,8 @@ router.get(('/'), (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   const userData = {
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
+    user_first_name: req.body.user_first_name,
+    user_last_name: req.body.user_last_name,
     password: req.body.password,
     email: req.body.email,
     gender: req.body.gender,
@@ -24,12 +24,12 @@ router.post('/', (req, res, next) => {
   const searchUserQuery = ' SELECT email FROM users WHERE email = ?'
   const addUserQuery = `INSERT INTO users(user_first_name, user_last_name, email, gender , phone_number) VALUES(?,?,?,?,?)`;
   const addPassword = `INSERT INTO passwords(user_password,salt,user_id) VALUES(?,?,?)`;
-  const userInfo = [userData.first_name, userData.last_name, userData.email, userData.gender, userData.phone_number]
+  const userInfo = [userData.user_first_name, userData.user_last_name, userData.email, userData.gender, userData.phone_number]
 
   const saltRounds = 10;
   connection.query(searchUserQuery, [userData.email], (searchErr, result) => {
     if (searchErr) {
-      console.log("searchErr " + err)
+      console.log("searchErr " + searchErr)
     } else {
       if (result.length > 0) {
         res.json({
@@ -39,7 +39,7 @@ router.post('/', (req, res, next) => {
         console.log('Generating salt ..');
         bcrypt.genSalt(saltRounds, (genSaltErr, salt) => {
           if (genSaltErr) {
-            console.log('genSaltErr : ', genSaltErr); 
+            console.log('genSaltErr : ', genSaltErr);
           } else {
             console.log('hashing password');
             bcrypt.hash(userData.password, salt, (hashErr, hash) => {
@@ -52,12 +52,14 @@ router.post('/', (req, res, next) => {
                     console.log('addUserErr : ', addUserErr);
                   } else {
                     console.log('Adding password info to database');
-                    connection.query(addPassword, [ hash, salt, addUserRes.insertId ], (addPassErr, addPassRes) => {
+                    connection.query(addPassword, [hash, salt, addUserRes.insertId], (addPassErr, addPassRes) => {
                       if (addPassErr) {
                         console.log('addPassErr : ', addUser);
                       } else {
                         console.log('new user created successfully');
-                        res.json({ message: 'user created successfully' }).end();
+                        res.json({
+                          message: 'user created successfully'
+                        }).end();
                       }
                     });
                   }
