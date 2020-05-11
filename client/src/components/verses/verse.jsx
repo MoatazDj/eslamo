@@ -1,10 +1,10 @@
 import React from "react";
 import "./verse.css";
-import Card from '@material-ui/core/Card';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
+// import Card from "@material-ui/core/Card";
+// import Typography from "@material-ui/core/Typography";
+// import Button from "@material-ui/core/Button";
+// import Container from "@material-ui/core/Container";
+// import CssBaseline from "@material-ui/core/CssBaseline";
 
 var Verse = (props) => {
   return (
