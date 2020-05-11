@@ -14,10 +14,16 @@ import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Home from '@material-ui/icons/Home';
+import Button from '@material-ui/core/Button';
 
-import SignUp from "../signUp/signUp";
-import SignIn from "../signIn/signIn";
+import Radio  from "../radio/radio";
+import Calender from "../calender/calender";
 import States from "../statesSelect/statesSelect";
+import Favorites from "../favorites/favorites";
+import PrayerTime from '../prayerTime/prayerTime';
+import { Avatar } from '@material-ui/core';
+
+
 const drawerWidth = 240;
 const history = createBrowserHistory();
 
@@ -62,7 +68,9 @@ const MyToolbar = withStyles(styles)(
           >
             {title}
           </Typography>
+          
         </Toolbar>
+        <Avatar></Avatar>
       </AppBar>
       <div className={classes.toolbarMargin} />
     </Fragment>
@@ -86,18 +94,27 @@ const MyDrawer = withStyles(styles)(
         <ListItem button component={Link} to="/" onClick={onItemClick('Home')}>
           <Home> Home </Home>
         </ListItem>
-        <ListItem button component={Link} to="/signup" onClick={onItemClick('Sign up')}>
-          <ListItemText>Sign up</ListItemText>
+        <ListItem button component={Link} to="/prayerTime" onClick={onItemClick('Prayer Time')}>
+          <ListItemText>Prayer Time</ListItemText>
         </ListItem>
-        <ListItem button component={Link} to="signin" onClick={onItemClick('sign in')}>
-          <ListItemText>Sign in</ListItemText>
+        <ListItem button component={Link} to="/favorites" onClick={onItemClick('favorites')}>
+          <ListItemText>favorites</ListItemText>
+        </ListItem>
+        <ListItem button component={Link} to="/radio" onClick={onItemClick('radio')}>
+          <ListItemText>radio</ListItemText>
+        </ListItem>
+        <ListItem button component={Link} to="/calender" onClick={onItemClick('calender')}>
+          <ListItemText>Calender</ListItemText>
         </ListItem>
       </List>
     </Drawer>
     <main className={classes.content}>
         <Route exact path="/" component={States} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route path="/signin" component={SignIn} />
+        <Route path="/calender" component={Calender} />
+        <Route path="/prayerTime" component={PrayerTime} />
+        <Route path="/favorites" component={Favorites} />
+        <Route path="/radio" component={Radio} />
+        <Route path="/prayerTime" component={PrayerTime} />
     </main>
     </Router>
   )

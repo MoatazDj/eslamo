@@ -14,13 +14,12 @@ import "./App.css";
 
 function App() {
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <PrayerTime />
-      {/* <CssBaseline />
-      <Appbar /> */}
-    </React.Fragment>
-  );
-}
-
-export default App;
+    <React.Fragment >
+    <CssBaseline />
+    <Appbar />
+  </React.Fragment>
+    );
+  }
+  
+  export default App;
+  
