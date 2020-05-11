@@ -16,9 +16,6 @@ function App() {
   return (
     <React.Fragment>
       <Appbar />
-      {/* <PrayerTime />
-      {/* <CssBaseline />
-      <Appbar /> */}
     </React.Fragment>
   );
 }

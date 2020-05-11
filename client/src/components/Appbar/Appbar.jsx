@@ -15,9 +15,10 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Home from "@material-ui/icons/Home";
 import Button from "@material-ui/core/Button";
+import { deepPurple } from "@material-ui/core/colors";
 
 import Radio from "../radio/radio";
-import Calender from "../calender/calender";
+import SignUp from "../signUp/signUp";
 import States from "../statesSelect/statesSelect";
 import Favorites from "../favorites/favorites";
 import PrayerTime from "../prayerTime/prayerTime";
@@ -29,6 +30,7 @@ const history = createBrowserHistory();
 const styles = (theme) => ({
   root: {
     flexGrow: 1,
+    margin: theme.spacing(5),
   },
   flex: {
     flex: 1,
@@ -44,6 +46,14 @@ const styles = (theme) => ({
   toolbarMargin: theme.mixins.toolbar,
   aboveDrawer: {
     zIndex: theme.zIndex.drawer + 1,
+  },
+  large: {
+    width: theme.spacing(12),
+    height: theme.spacing(12),
+  },
+  purple: {
+    color: theme.palette.getContrastText(deepPurple[500]),
+    backgroundColor: deepPurple[500],
   },
 });
 
@@ -114,20 +124,20 @@ const MyDrawer = withStyles(styles)(
             component={Link}
             to="/radio"
             onClick={onItemClick("radio")}>
-            <ListItemText>radio</ListItemText>
+            <ListItemText>Radio</ListItemText>
           </ListItem>
           <ListItem
             button
             component={Link}
-            to="/calender"
-            onClick={onItemClick("calender")}>
-            <ListItemText>Calender</ListItemText>
+            to="/signup"
+            onClick={onItemClick("Sign Up")}>
+            <ListItemText>Sign Out</ListItemText>
           </ListItem>
         </List>
       </Drawer>
       <main className={classes.content}>
         <Route exact path="/" component={States} />
-        <Route path="/calender" component={Calender} />
+        <Route path="/signup" component={SignUp} />
         <Route path="/prayerTime" component={PrayerTime} />
         <Route path="/favorites" component={Favorites} />
         <Route path="/radio" component={Radio} />

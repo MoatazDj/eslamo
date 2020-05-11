@@ -8,7 +8,8 @@ import "./statesSelect.css";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
-
+import VersesList from "../verses/versesList";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // const useStyles = makeStyles(() => {
 //   root: {
 //     border: '1px solid',
@@ -48,32 +49,34 @@ class States extends React.Component {
         </Typography>
         <br></br>
         <Grid container spacing={1} alignItems="center" justify="center">
-          {this.state.emotionalStates.map((emotionalState, index) => {
-            return (
-              <Grid
-                item
-                key={index}
-                xs={12}
-                sm={3}
-                md={3}
-                lg={4}
-                id="GridState">
-                <Paper id="stateComponent" onClick={this.getVerses}>
-                  <img
-                    src={require(`../../img/emoji/${emotionalState}.png`)}
-                    alt={emotionalState}
-                    style={{ marginLeft: 190 }}
-                  />
-                  <Button
-                    variant="outlined"
-                    color="primary"
-                    style={{ marginLeft: 225 }}>
-                    {emotionalState}
-                  </Button>
-                </Paper>
-              </Grid>
-            );
-          })}
+          <Router>
+            {this.state.emotionalStates.map((emotionalState, index) => {
+              return (
+                <Grid item key={index} xs={12} sm={3} md={3} lg={5}>
+                  <Link to={`/verses/${emotionalState}`}>
+                    <Paper id="stateComponent">
+                      <img
+                        src={require(`../../img/emoji/${emotionalState}.png`)}
+                        alt={emotionalState}
+                        style={{ marginLeft: 190 }}
+                      />
+                      <Button
+                        variant="outlined"
+                        color="primary"
+                        style={{ marginLeft: 225 }}>
+                        {emotionalState}
+                      </Button>
+                    </Paper>
+                  </Link>
+                </Grid>
+              );
+            })}
+            <Route
+              exact
+              path="/verses/:emotionalState"
+              render={(props) => <VersesList text="Hello, " {...props} />}
+            />
+          </Router>
         </Grid>
       </Container>
     );
