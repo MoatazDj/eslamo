@@ -1,5 +1,5 @@
-import React, { useState, Fragment } from 'react';
-import clsx from 'clsx';
+import React, { useState, Fragment } from "react";
+import clsx from "clsx";
 import { Router, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
@@ -16,6 +16,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Home from '@material-ui/icons/Home';
 import Button from '@material-ui/core/Button';
 
+
 import Radio  from "../radio/radio";
 import Calender from "../calender/calender";
 import States from "../statesSelect/statesSelect";
@@ -27,26 +28,27 @@ import { Avatar } from '@material-ui/core';
 const drawerWidth = 240;
 const history = createBrowserHistory();
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   flex: {
-    flex: 1
+    flex: 1,
   },
   drawerPaper: {
     position: "relative",
-    width: drawerWidth
+    width: drawerWidth,
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20
+    marginRight: 20,
   },
   toolbarMargin: theme.mixins.toolbar,
   aboveDrawer: {
-    zIndex: theme.zIndex.drawer + 1
-  }
+    zIndex: theme.zIndex.drawer + 1,
+  },
 });
+
 
 const MyToolbar = withStyles(styles)(
   ({ classes, title, onMenuClick }) => (
@@ -122,15 +124,15 @@ const MyDrawer = withStyles(styles)(
 
 function AppBarInteraction({ classes, variant }) {
   const [drawer, setDrawer] = useState(false);
-  const [title, setTitle] = useState('Home');
+  const [title, setTitle] = useState("Home");
 
   const toggleDrawer = () => {
     setDrawer(!drawer);
   };
 
-  const onItemClick = title => () => {
+  const onItemClick = (title) => () => {
     setTitle(title);
-    setDrawer(variant === 'temporary' ? false : drawer);
+    setDrawer(variant === "temporary" ? false : drawer);
     setDrawer(!drawer);
   };
 

@@ -58,59 +58,61 @@ class PrayerTime extends React.Component {
 
   render() {
     var prayers = this.state.todayPrayer.map((prayer) => (
-      <div>
-        <div id="divDate">
-          <div> {prayer.date.readable}&nbsp;</div>
-          <div>
-            {prayer.date.hijri.day}&nbsp;
-            {prayer.date.hijri.month.en}&nbsp;
-            {prayer.date.hijri.year}&nbsp;
+      <div id="mainDivPrayerTime">
+        <div id="mainDateDiv">
+          <div id="divDate">
+            <div> {prayer.date.readable}&nbsp;</div>
+            <div>
+              {prayer.date.hijri.day}&nbsp;
+              {prayer.date.hijri.month.en}&nbsp;
+              {prayer.date.hijri.year}&nbsp;
+            </div>
+          </div>
+          <div id="datePickerDiv">
+            {/* <h3>Select Date :</h3> */}
+            <DatePicker
+              selected={this.state.startDate}
+              onChange={(date, e) => this.handleChange(date)}
+              dateFormat="dd-MM-yyyy"
+              placeholderText="Select a weekday"
+              id="dtpick"
+            />
           </div>
         </div>
         <div id="prayerDivContainer">
           <div className="prayerDiv">
-            Fajr:&nbsp;&nbsp;&nbsp;<br></br>
+            <h4> Fajr:</h4>
+
             <p>{prayer.timings.Fajr}</p>
           </div>
           <div className="prayerDiv">
-            Sunrise:&nbsp;&nbsp;&nbsp;<br></br>
+            <h4>Sunrise:</h4>
             <p>{prayer.timings.Sunrise}</p>
           </div>
           <div className="prayerDiv">
-            Dhuhr:&nbsp;&nbsp;&nbsp;<br></br>
+            <h4>Dhuhr:</h4>
+
             <p>{prayer.timings.Dhuhr}</p>
           </div>
           <div className="prayerDiv">
-            Asr:&nbsp;&nbsp;&nbsp;<br></br>
+            <h4>Asr:</h4>
+
             <p>{prayer.timings.Asr}</p>
           </div>
           <div className="prayerDiv">
-            Maghrib:&nbsp;&nbsp;&nbsp;<br></br>
+            <h4>Maghrib:</h4>
+
             <p>{prayer.timings.Maghrib}</p>
           </div>
           <div className="prayerDiv">
             {" "}
-            Isha:&nbsp;&nbsp;&nbsp;<br></br>
+            <h4>Isha:</h4>
             <p>{prayer.timings.Isha}</p>
           </div>
         </div>
       </div>
     ));
-    return (
-      <div>
-        <div id="DatePicker">
-          <DatePicker
-            selected={this.state.startDate}
-            onChange={(date, e) => this.handleChange(date)}
-            dateFormat="dd-MM-yyyy"
-            id="dtpick"
-          />
-        </div>
-        <p></p>
-        <div></div>
-        {prayers}
-      </div>
-    );
+    return <div id="main">{prayers}</div>;
   }
 }
 export default PrayerTime;
