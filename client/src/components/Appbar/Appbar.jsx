@@ -70,7 +70,6 @@ const MyToolbar = withStyles(styles)(
           </Typography>
           
         </Toolbar>
-        <Avatar></Avatar>
       </AppBar>
       <div className={classes.toolbarMargin} />
     </Fragment>
@@ -114,7 +113,6 @@ const MyDrawer = withStyles(styles)(
         <Route path="/prayerTime" component={PrayerTime} />
         <Route path="/favorites" component={Favorites} />
         <Route path="/radio" component={Radio} />
-        <Route path="/prayerTime" component={PrayerTime} />
     </main>
     </Router>
   )

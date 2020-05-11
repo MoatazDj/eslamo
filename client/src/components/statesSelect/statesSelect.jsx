@@ -8,7 +8,8 @@ import './statesSelect.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-
+import VersesList from '../verses/versesList';
+import { BrowserRouter, Router, Route, Link } from "react-router-dom";
 // const useStyles = makeStyles(() => {
 //   root: {
 //     border: '1px solid',
@@ -49,11 +50,13 @@ class States extends React.Component {
         alignItems="center"
         justify="center"
         >
+        <BrowserRouter>
         {
           this.state.emotionalStates.map((emotionalState, index) => {
             return (
               <Grid item key={index} xs={6} sm={3} md={3} lg={3} id = "yo" >
-                <Paper id='stateComponent' onClick={this.getVerses}>
+                <Link to='/verses'>
+                <Paper id='stateComponent' >
                   <img src={require(`../../img/emoji/${emotionalState}.svg`)} alt={emotionalState}/>
                     <Button variant='outlined'
                       color='primary'
@@ -61,10 +64,16 @@ class States extends React.Component {
                       {emotionalState}
                     </Button>
                 </Paper>
+                </Link>
               </Grid>
               );
           })
         }
+        <Route
+        path="/greeting/:name"
+        render={props => <VersesList text="Hello, " {...props} />}  
+        />
+        </BrowserRouter>
         </Grid>
         </Container>
       );
