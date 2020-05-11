@@ -4,8 +4,8 @@ const connection = require('../../database/index');
 const app = require('../App')
 
 router.get('/', (req, res, next) => {
-    //const state = req.query.state;
-    const state = 'stuck'
+    const state = req.query.state;
+    //const state = 'stuck'
     //console.log('Verses GET request received with state :', state);
 
     connection.query('select * from verses v inner join ' +

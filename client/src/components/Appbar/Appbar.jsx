@@ -14,10 +14,15 @@ import ListItemText from "@material-ui/core/ListItemText";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Home from "@material-ui/icons/Home";
+import Button from "@material-ui/core/Button";
 
-import SignUp from "../signUp/signUp";
-import SignIn from "../signIn/signIn";
+import Radio from "../radio/radio";
+import Calender from "../calender/calender";
 import States from "../statesSelect/statesSelect";
+import Favorites from "../favorites/favorites";
+import PrayerTime from "../prayerTime/prayerTime";
+import { Avatar } from "@material-ui/core";
+import "./Appbar.css";
 const drawerWidth = 240;
 const history = createBrowserHistory();
 
@@ -44,7 +49,7 @@ const styles = (theme) => ({
 
 const MyToolbar = withStyles(styles)(({ classes, title, onMenuClick }) => (
   <Fragment>
-    <AppBar className={classes.aboveDrawer}>
+    <AppBar className={classes.aboveDrawer} id="navBar">
       <Toolbar>
         <IconButton
           className={classes.menuButton}
@@ -57,6 +62,9 @@ const MyToolbar = withStyles(styles)(({ classes, title, onMenuClick }) => (
           {title}
         </Typography>
       </Toolbar>
+      <Avatar id="avatar">
+        <img src="https://i.ibb.co/4Ksm9Dw/11.png" />
+      </Avatar>
     </AppBar>
     <div className={classes.toolbarMargin} />
   </Fragment>
@@ -77,6 +85,8 @@ const MyDrawer = withStyles(styles)(
             [classes.toolbarMargin]: variant === "persistent",
           })}
         />
+
+        <img src="https://i.ibb.co/HX0TG9s/logo-islamo.png" />
         <List>
           <ListItem
             button
@@ -88,24 +98,41 @@ const MyDrawer = withStyles(styles)(
           <ListItem
             button
             component={Link}
-            to="/signup"
-            onClick={onItemClick("Sign up")}>
-            <ListItemText>Sign up</ListItemText>
+            to="/prayerTime"
+            onClick={onItemClick("Prayer Time")}>
+            <ListItemText>Prayer Time</ListItemText>
           </ListItem>
           <ListItem
             button
             component={Link}
-            to="signin"
-            onClick={onItemClick("sign in")}>
-            <ListItemText>Sign in</ListItemText>
+            to="/favorites"
+            onClick={onItemClick("favorites")}>
+            <ListItemText>favorites</ListItemText>
+          </ListItem>
+          <ListItem
+            button
+            component={Link}
+            to="/radio"
+            onClick={onItemClick("radio")}>
+            <ListItemText>radio</ListItemText>
+          </ListItem>
+          <ListItem
+            button
+            component={Link}
+            to="/calender"
+            onClick={onItemClick("calender")}>
+            <ListItemText>Calender</ListItemText>
           </ListItem>
         </List>
       </Drawer>
-      {/* <main className={classes.content}>
+      <main className={classes.content}>
         <Route exact path="/" component={States} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route path="/signin" component={SignIn} />
-      </main> */}
+        <Route path="/calender" component={Calender} />
+        <Route path="/prayerTime" component={PrayerTime} />
+        <Route path="/favorites" component={Favorites} />
+        <Route path="/radio" component={Radio} />
+        <Route path="/prayerTime" component={PrayerTime} />
+      </main>
     </Router>
   )
 );

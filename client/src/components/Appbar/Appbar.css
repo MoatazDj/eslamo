@@ -9,3 +9,24 @@
     color: black;
     margin: 0 15px;
 }
+
+#avatar {
+    margin-left: 90%;
+    float: right;
+    width: 80px;
+    height: 90px;
+}
+
+#avatar img {
+    width: 85px;
+}
+
+#navBar {
+    background-color: purple;
+    background-image: url("https://i.ibb.co/HX0TG9s/logo-islamo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100px;
+}
+
+#logo img {}
