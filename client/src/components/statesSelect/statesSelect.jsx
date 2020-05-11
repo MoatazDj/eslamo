@@ -9,7 +9,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import VersesList from '../verses/versesList';
-import { BrowserRouter, Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 // const useStyles = makeStyles(() => {
 //   root: {
 //     border: '1px solid',
@@ -41,25 +41,27 @@ class States extends React.Component {
     return (
       <Container component="main" maxWidth="xm">
         <CssBaseline/>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style = {{marginTop : 40, marginLeft : 550}}>
           Select your state
         </Typography>
+        <br></br>
         <Grid 
         container
         spacing={1}
         alignItems="center"
         justify="center"
         >
-        <BrowserRouter>
+        <Router>
         {
           this.state.emotionalStates.map((emotionalState, index) => {
             return (
-              <Grid item key={index} xs={6} sm={3} md={3} lg={3} id = "yo" >
-                <Link to='/verses'>
-                <Paper id='stateComponent' >
-                  <img src={require(`../../img/emoji/${emotionalState}.svg`)} alt={emotionalState}/>
+              <Grid item key={index} xs={12} sm={3} md={3} lg={5} >
+              <Link to={`/verses/${emotionalState}`}>
+                <Paper id='stateComponent'>
+                  <img src={require(`../../img/emoji/${emotionalState}.svg`)} alt={emotionalState} style = {{marginLeft : 190}}/>
                     <Button variant='outlined'
                       color='primary'
+                      style = {{marginLeft : 225}}
                     >
                       {emotionalState}
                     </Button>
@@ -69,11 +71,11 @@ class States extends React.Component {
               );
           })
         }
-        <Route
-        path="/greeting/:name"
+        <Route exact
+        path="/verses/:emotionalState"
         render={props => <VersesList text="Hello, " {...props} />}  
         />
-        </BrowserRouter>
+        </Router>
         </Grid>
         </Container>
       );

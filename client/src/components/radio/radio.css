@@ -1,0 +1,14 @@
+#Grid {
+    background-image: url("https://i.ibb.co/TL8svJH/radio.jpg");
+    background-size: cover;
+    height: 300px;
+    box-shadow: 2px 3px 5px pink;
+    padding: 1%;
+    padding-top: 50%;
+
+    margin: 2%;
+}
+
+#audioPlayer {
+    lighting-color: rebeccapurple;
+}
