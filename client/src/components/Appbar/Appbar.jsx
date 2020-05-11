@@ -18,7 +18,7 @@ import Button from '@material-ui/core/Button';
 import { deepPurple } from '@material-ui/core/colors';
 
 import Radio  from "../radio/radio";
-import Calendar from "../calendar/calendar";
+import SignUp from "../signUp/signUp";
 import States from "../statesSelect/statesSelect";
 import Favorites from "../favorites/favorites";
 import PrayerTime from '../prayerTime/prayerTime';
@@ -78,7 +78,7 @@ const MyToolbar = withStyles(styles)(
           >
             {title}
           </Typography>
-          <Avatar alt="Remy Sharp" src="../../../1.jpg" className={classes.large}  ></Avatar>
+          <Avatar alt="Eslamo" src="https://lh3.googleusercontent.com/proxy/aiSRqTTlOFmkvjjElLtJ0IfAfQnMB7qGaEkRHvMEpwM4qItI0yNgSmCMmAPJpWhSh6S_WVs2Lwp698SMCASGK8q7hwvsjBsLUiGq0Kt5qj-Ro8MjZsUB" className={classes.large}  ></Avatar>
         </Toolbar>
       </AppBar>
       <div className={classes.toolbarMargin} />
@@ -114,7 +114,7 @@ const MyDrawer = withStyles(styles)(
         <ListItem button component={Link} to="/radio" onClick={onItemClick('radio')}>
           <ListItemText>radio</ListItemText>
         </ListItem>
-        <ListItem button component={Link} to="/signup" onClick={onItemClick('sign out')}>
+        <ListItem button component={Link} to="/signup" onClick={onItemClick('sign up')}>
           <ListItemText>Sign out</ListItemText>
         </ListItem>
       </List>
