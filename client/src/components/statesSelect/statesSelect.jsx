@@ -55,7 +55,7 @@ class States extends React.Component {
             return (
               <Grid item key={index} xs={12} sm={3} md={3} lg={5} >
                 <Paper id='stateComponent' onClick={this.getVerses}>
-                  <img src={require(`../../img/emoji/${emotionalState}.svg`)} alt={emotionalState} style = {{marginLeft : 170}}/>
+                  <img src={require(`../../img/emoji/${emotionalState}.svg`)} alt={emotionalState} style = {{marginLeft : 190}}/>
                     <Button variant='outlined'
                       color='primary'
                       style = {{marginLeft : 225}}
