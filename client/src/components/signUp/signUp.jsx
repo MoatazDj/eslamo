@@ -4,12 +4,11 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
-import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import InputLabel from '@material-ui/core/InputLabel';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
+import Container from '@material-ui/core/Container';
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +17,6 @@ class SignUp extends React.Component {
       user_last_name: '',
       email: '',
       password: '',
-      confirmPassword: '',
       phoneNumber: '',
       gender: 'Male'
     };
@@ -34,7 +32,6 @@ class SignUp extends React.Component {
       user_last_name: '',
       email: '',
       password: '',
-      confirmPassword: '',
       phoneNumber: '',
       gender: 'Male'
     });
@@ -64,7 +61,7 @@ class SignUp extends React.Component {
     return (
       <Container component="main" maxWidth="xs">
       <CssBaseline />
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style = {{marginTop : 40}}>
           Sign Up
         </Typography>
         <form>
@@ -148,7 +145,7 @@ class SignUp extends React.Component {
             <InputLabel htmlFor="select">Gender</InputLabel>
               <NativeSelect id="select" value = {this.state.gender} onChange = {this.handleGenderChange}>
                 <option value="10">Male</option>
-                <option value="20">FeMale</option>
+                <option value="20">Female</option>
               </NativeSelect>
               </Grid>
           <br></br>

@@ -2,6 +2,8 @@ import React from "react";
 import Verse from "./verse";
 import "./verse.css";
 import $ from "jquery";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
 
 class VersesList extends React.Component {
   constructor(props) {
@@ -52,7 +54,8 @@ class VersesList extends React.Component {
 
   render() {
     var verses = this.state.versesList.map((verse, i) => (
-      <div>
+      <Container>
+       <CssBaseline />
         <Verse
           verse={verse.verse_text}
           key={i}
@@ -64,7 +67,7 @@ class VersesList extends React.Component {
           }}
           verse_id={verse.verse_id}
           addToFavoris={this.addToFavoris}></Verse>
-      </div>
+      </Container>
     ));
 
     return <div>{verses}</div>;
