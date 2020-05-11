@@ -45,7 +45,7 @@ class SignIn extends React.Component {
     return (
       <Container component="main" maxWidth="xs">
       <CssBaseline/>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style = {{marginTop : 60, marginLeft : 150}}>
           Sign in
         </Typography>
         <div>
@@ -60,6 +60,7 @@ class SignIn extends React.Component {
                 name="email Adress"
                 autoComplete="email Adress"
                 autoFocus
+                fullWidth
                 type='text'
                 id='email'
                 value={this.state.email}
@@ -76,6 +77,7 @@ class SignIn extends React.Component {
                 label="Password"
                 name="Password"
                 autoComplete="Password"
+                fullWidth
                 type='Password'
                 id='password'
                 value={this.state.password}
@@ -84,10 +86,10 @@ class SignIn extends React.Component {
             </div>
           </div>
           <div className='submit_form'>
-          <Button variant='outlined' color='secondary' onClick={this.handleClick}>Sign in</Button>
+          <Button variant='outlined' color='secondary' style = {{marginLeft: 160}} onClick={this.handleClick}>Sign in</Button>
           </div>
         </form>
-            <Grid item>
+            <Grid item style = {{marginTop : 20, marginLeft: 90}}>
               <Link href="#" variant="body2">
                 {"Don't have an account?   "}
               </Link>
