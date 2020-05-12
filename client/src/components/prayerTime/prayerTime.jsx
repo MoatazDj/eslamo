@@ -82,30 +82,32 @@ class PrayerTime extends React.Component {
         <div id="prayerDivContainer">
           <div className="prayerDiv">
             <h4> Fajr:</h4>
-
+            <br/>
             <p>{prayer.timings.Fajr}</p>
           </div>
           <div className="prayerDiv">
             <h4>Sunrise:</h4>
+            <br/>
             <p>{prayer.timings.Sunrise}</p>
           </div>
           <div className="prayerDiv">
             <h4>Dhuhr:</h4>
-
+            <br/>
             <p>{prayer.timings.Dhuhr}</p>
           </div>
           <div className="prayerDiv">
             <h4>Asr:</h4>
-
+            <br/>
             <p>{prayer.timings.Asr}</p>
           </div>
           <div className="prayerDiv">
             <h4>Maghrib:</h4>
-
+            <br/>
             <p>{prayer.timings.Maghrib}</p>
           </div>
           <div className="prayerDiv">
             <h4>Isha:</h4>
+            <br/>
             <p>{prayer.timings.Isha}</p>
           </div>
         </div>
