@@ -19,6 +19,7 @@ import { deepPurple } from "@material-ui/core/colors";
 
 import Radio from "../radio/radio";
 import SignUp from "../signUp/signUp";
+import SignIn from "../signIn/signIn";
 import States from "../statesSelect/statesSelect";
 import Favorites from "../favorites/favorites";
 import PrayerTime from "../prayerTime/prayerTime";
@@ -72,9 +73,7 @@ const MyToolbar = withStyles(styles)(({ classes, title, onMenuClick }) => (
           {title}
         </Typography>
       </Toolbar>
-      <Avatar id="avatar">
-        <img src="https://i.ibb.co/4Ksm9Dw/11.png" />
-      </Avatar>
+      
     </AppBar>
     <div className={classes.toolbarMargin} />
   </Fragment>
@@ -117,7 +116,7 @@ const MyDrawer = withStyles(styles)(
             component={Link}
             to="/favorites"
             onClick={onItemClick("favorites")}>
-            <ListItemText>favorites</ListItemText>
+            <ListItemText>Favorites</ListItemText>
           </ListItem>
           <ListItem
             button
@@ -131,7 +130,14 @@ const MyDrawer = withStyles(styles)(
             component={Link}
             to="/signup"
             onClick={onItemClick("Sign Up")}>
-            <ListItemText>Sign Out</ListItemText>
+            <ListItemText>Sign Up</ListItemText>
+          </ListItem>
+          <ListItem
+            button
+            component={Link}
+            to="/signin"
+            onClick={onItemClick("Sign In")}>
+            <ListItemText>Sign In</ListItemText>
           </ListItem>
         </List>
       </Drawer>
@@ -141,7 +147,7 @@ const MyDrawer = withStyles(styles)(
         <Route path="/prayerTime" component={PrayerTime} />
         <Route path="/favorites" component={Favorites} />
         <Route path="/radio" component={Radio} />
-        <Route path="/prayerTime" component={PrayerTime} />
+        <Route path="/signin" component={SignIn} />
       </main>
     </Router>
   )

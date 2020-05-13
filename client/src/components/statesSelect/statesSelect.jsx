@@ -26,7 +26,7 @@ class States extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      emotionalStates: ["excited", "happy", "stuck", "sick", "scared", "angry"],
+      emotionalStates: ["stuck", "sick", "scared", "angry","excited", "happy"],
     };
   }
 
@@ -52,7 +52,7 @@ class States extends React.Component {
           <Router>
             {this.state.emotionalStates.map((emotionalState, index) => {
               return (
-                <Grid item key={index} xs={12} sm={3} md={3} lg={5}>
+                <Grid item key={index} xs={6} sm={3} md={3} lg={4}>
                   <Link to={`/verses/${emotionalState}`}>
                     <Paper id="stateComponent">
                       <img
